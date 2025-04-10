@@ -22,4 +22,9 @@ simple gNodeB
 
 		gates:
     			inout ethg[];
+    			
+    	submodules:
+    			wlan: Adhoc80211Nice {
+    				@display("p=100,100");
+    			}
 }

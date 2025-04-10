@@ -20,7 +20,16 @@ import securitynetwork.gNodeB;
 import securitynetwork.FiveGCore;
 import securitynetwork.FirewallModule;
 import securitynetwork.IDSModule;
+import securitynetwork.attacker;
 import ned.DatarateChannel;
+
+import inet.linklayer.ieee80211.mac.Ieee80211Mac;
+import inet.linklayer.ieee80211.radio.Ieee80211Radio;
+import inet.node.inet.AdhocHost;
+import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+
+import inet.linklayer.ieee80211.InterfaceTable;
+import inet.linklayer.ieee80211.Adhoc80211Nic;
 
 channel Eth100M extends DatarateChannel {
 		datarate = 100Mbps;
@@ -57,6 +66,10 @@ network FiveGNetwork
 		
 		ids: IDSModule {
 			@display(“p=400,100”);
+		}
+		
+		attacker: AttackerNode {
+			@display("p=600,250");
 		}
 		
 	connections:
