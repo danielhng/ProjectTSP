@@ -1,0 +1,61 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+package securitynetwork.simulations.SecurityNetwork;
+
+import securitynetwork.UserEquipment;
+import securitynetwork.gNodeB;
+import securitynetwork.FiveGCore;
+
+network FiveGNetwork
+{
+	submodules:
+		ue1: UserEquipment {
+			@display(“p=100,150”);
+		}
+		
+		ue2: UserEquipment {
+			@display(“p=100,250”);
+		}
+		
+		gnb1: gNodeB {
+			@display(“p=300,150”);
+		}
+		
+		gnb2: gNodeB {
+			@display(“p=300,250”);
+		}
+		
+		coreNetwork: FiveGCore {
+			@display(“p=500,200”);
+		}
+		
+		firewall: FirewallModule {
+			@display(“p=200,100”);
+		}
+		
+		ids: IDSModule {
+			@display(“p=400,100”);
+		}
+		
+	connections:
+		ue1.ethg++ <–> Eth100M <–> gnb1.ethg++;
+		ue2.ethg++ <–> Eth100M <–> gnb2.ethg++;
+		gnb1.ethg++ <–> Eth100M <–> firewall.ethg++;
+		gnb2.ethg++ <–> Eth100M <–> firewall.ethg++;
+		firewall.ethg++ <–> Eth100M <–> ids.ethg++;
+		ids.ethg++ <–> Eth100M <–> coreNetwork.ethg++;
+		attacker.wlan++ <–> Adhoc80211Nic <–> gnb1.wlan++;
+}

@@ -1,0 +1,60 @@
+#include <omnetpp.h>
+#include "inet/common/INETDefs.h"
+#include "inet/common/packet/Packet.h"
+#include <openssl/evp.h>
+
+using namespace omnetpp;
+using namespace inet;
+
+class gNodeB : public cSimpleModule
+{
+    protected:
+        virtual void initialize() override;
+        virtual void handleMessage(cMessage *msg) override;
+        void authenticateUE(Packet *packet);
+        std::string encryptData(const std::string &data);
+};
+
+Define_Module(gNodeB);
+void gNodeB::initialize()
+{
+    EV << “gNodeB Initialized” << endl;
+}
+
+void gNodeB::handleMessage(cMessage *msg)
+{
+    if (Packet *packet = dynamic_cast<Packet *>(msg)) {
+            authenticateUE(packet);
+    }
+    delete msg;
+}
+
+void gNodeB::authenticateUE(Packet *packet)
+{
+    const auto &payload = packet->peekData();
+    std::string data = payload->str();
+    // Encrypt the data before further processing
+    std::string encryptedData = encryptData(data);
+    EV << “Authenticating UE and encrypting data: ” << encryptedData << endl;
+    // Forward processed data to the core network
+    Packet *processedPacket = new Packet("AuthenticatedDataPacket");
+    processedPacket->insertAtBack(makeShared<Chunk>(encryptedData));
+    send(processedPacket, "ethgOut");
+}
+
+std::string gNodeB::encryptData(const std::string &data)
+{
+    // Simplified encryption using OpenSSL
+    unsigned char key[16] = “gnbkey12345678”;
+    unsigned char iv[16] = “initialvector12”;
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_EncryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, key, iv);
+    unsigned char encrypted[1024];
+    int len;
+    EVP_EncryptUpdate(ctx, encrypted, &len, (unsigned char*)data.c_str(), data.length());
+    int ciphertext_len = len;
+    EVP_EncryptFinal_ex(ctx, encrypted + len, &len);
+    ciphertext_len += len;
+    EVP_CIPHER_CTX_free(ctx);
+    return std::string((char*)encrypted, ciphertext_len);
+}

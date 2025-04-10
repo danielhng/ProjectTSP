@@ -1,0 +1,16 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
+activeLaunchTarget=null\:---
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:cars (1),org.eclipse.launchbar.core.descriptorType.default\:standalone,org.eclipse.launchbar.core.descriptorType.default\:cars,org.eclipse.launchbar.core.descriptorType.default\:tutorial
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:anas/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:anas/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:cars\ (1)/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:cars\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:cars/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:cars/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:veins\ (1)/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:veins\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:veins/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:veins/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

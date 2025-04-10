@@ -1,0 +1,41 @@
+#include <omnetpp.h>
+
+#include "inet/common/INETDefs.h"
+#include "inet/common/packet/Packet.h"
+
+using namespace omnetpp;
+using namespace inet;
+
+class FirewallModule : public cSimpleModule
+{
+    protected:
+        virtual void initialize() override;
+        virtual void handleMessage(cMessage *msg) override;
+        bool isAllowed(Packet *packet);
+};
+
+Define_Module(FirewallModule);
+void FirewallModule::initialize()
+{
+    EV << "Firewall Module Initialized" << endl;
+}
+
+void FirewallModule::handleMessage(cMessage *msg)
+{
+    if (Packet *packet = dynamic_cast<Packet *>(msg)) {
+        if (isAllowed(packet)) {
+            send(packet, "ethgOut");
+        } else {
+            EV << "Packet dropped by firewall." << endl;
+            delete packet;
+        }
+    }
+}
+
+bool FirewallModule::isAllowed(Packet *packet)
+{
+    // Implement filtering logic (e.g., block specific IPs or patterns)
+    const auto &payload = packet->peekData();
+    std::string data = payload->str();
+    return data.find("malicious") == std::string::npos; // Example rule
+}

@@ -1,0 +1,13 @@
+15:53:53 **** Incremental Build of configuration release for project inet4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4/src'
+*** COMPILING with:
+g++ -c -std=c++11 -O3 -DNDEBUG=1 -MMD -MP -MF .d  -fPIC  -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_release.h  -DINET_EXPORT -I. -I/home/simu5g/omnetpp-5.6.2/include
+*** LINKING with:
+g++ -shared -fPIC -o ../out/gcc-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++  -losg -losgText -losgDB -losgGA -losgViewer -losgUtil -lOpenThreads  -losgEarth -losgEarthUtil  -Wl,-rpath,/home/simu5g/omnetpp-5.6.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-5.6.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4/src'
+
+15:53:57 Build Finished. 0 errors, 0 warnings. (took 3s.923ms)
+

@@ -1,0 +1,14 @@
+11:53:36 **** Incremental Build of configuration release for project inet4.3 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.3/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0pre11/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0pre11/lib -Wl,-rpath,/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0pre11/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.3/src'
+
+11:53:39 Build Finished. 0 errors, 0 warnings. (took 2s.438ms)
+

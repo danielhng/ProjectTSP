@@ -1,0 +1,3 @@
+package securitynetwork;
+
+@license(LGPL);

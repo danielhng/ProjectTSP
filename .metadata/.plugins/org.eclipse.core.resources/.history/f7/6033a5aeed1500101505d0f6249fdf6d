@@ -1,0 +1,46 @@
+#include <omnetpp.h>
+#include "inet4.4/common/INETDefs.h"
+#include "inet/common/packet/Packet.h"
+
+using namespace omnetpp;
+using namespace inet;
+
+class FiveGCore : public cSimpleModule
+{
+    protected:
+        virtual void initialize() override;
+        virtual void handleMessage(cMessage *msg) override;
+        void manageSession(Packet *packet);
+        void authenticateDevice(const std::string &data);
+};
+
+Define_Module(FiveGCore);
+void FiveGCore::initialize()
+{
+    EV << "5G Core Network Initialized" << endl;
+}
+
+void FiveGCore::handleMessage(cMessage *msg)
+{
+    if (Packet *packet = dynamic_cast<Packet *>(msg)) {
+            manageSession(packet);
+    }
+    delete msg;
+}
+
+void FiveGCore::manageSession(Packet *packet)
+{
+    const auto &payload = packet->peekData();
+    std::string data = payload->str();
+    // Authenticate the device before establishing the session
+    authenticateDevice(data);
+    EV << "Managing session in the core network: " << data << endl;
+    // Simulate session management (e.g., routing, session creation)
+}
+
+void FiveGCore::authenticateDevice(const std::string &data)
+{
+    // Simulate device authentication
+    EV << "Authenticating device: " << data << endl;
+    // Implement authentication logic here
+}

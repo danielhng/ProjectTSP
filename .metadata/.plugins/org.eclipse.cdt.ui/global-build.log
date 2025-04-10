@@ -1,0 +1,193 @@
+09:18:30 **** Build of configuration release for project inet4.4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+09:18:42 **** Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+09:18:45 **** Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+09:18:48 **** Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'
+09:19:14 **** Incremental Build of configuration release for project inet4.4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+09:19:21 **** Incremental Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+09:19:23 **** Incremental Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+09:19:26 **** Incremental Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'
+09:25:29 **** Incremental Build of configuration release for project inet4.4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+09:25:34 **** Incremental Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+09:25:35 **** Incremental Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+09:25:37 **** Incremental Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'
+14:38:21 **** Build of configuration release for project inet4.4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+14:38:25 **** Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+14:38:27 **** Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+14:38:28 **** Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'
+20:38:43 **** Build of configuration release for project inet4.4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make: *** [Makefile:7: all] Terminated
+Command canceled
+21:22:48 **** Build of configuration release for project inet4.4 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+21:22:52 **** Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j2 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+21:22:53 **** Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+21:22:54 **** Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'
+22:07:34 **** Build of configuration release for project inet4.4 ****
+make MODE=release -j6 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+22:07:39 **** Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j6 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+22:07:40 **** Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+22:07:41 **** Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'
+22:16:55 **** Build of configuration release for project inet4.4 ****
+make MODE=release -j6 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c  -O3 -DNDEBUG=1 -ffp-contract=off   -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_QTENV -DWITH_NETBUILDER -DWITH_OSG -fopenmp -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/home/simu5g/omnetpp-6.0/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++    -fuse-ld=lld -Wl,-rpath,/home/simu5g/omnetpp-6.0/lib -Wl,-rpath,/home/simu5g/omnetpp-6.0/tools/linux.x86_64/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/simu5g/omnetpp-6.0/lib -fopenmp
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/inet4.4/src'
+22:16:59 **** Build of configuration gcc-release for project veins-veins-5.2 ****
+make MODE=release -j6 all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins-veins-5.2/src'
+22:17:01 **** Build of configuration gcc-release for project veins_inet ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/veins_inet/src'
+22:17:02 **** Build of configuration gcc-release for project simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/simu5G/src'

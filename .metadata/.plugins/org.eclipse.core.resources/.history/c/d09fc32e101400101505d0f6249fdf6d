@@ -1,0 +1,7 @@
+package securitynetwork;
+
+simple firewall
+{
+    	parameters:
+    	    	@display("i=misc/sun");
+}

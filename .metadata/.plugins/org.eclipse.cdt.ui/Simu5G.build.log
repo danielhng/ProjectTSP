@@ -1,0 +1,8 @@
+15:54:01 **** Build of configuration gcc-release for project Simu5G ****
+make MODE=release all 
+make[1]: Entering directory '/home/simu5g/simu5g-workspace/Simu5G/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/simu5g/simu5g-workspace/Simu5G/src'
+
+15:54:01 Build Finished. 0 errors, 0 warnings. (took 643ms)
+
