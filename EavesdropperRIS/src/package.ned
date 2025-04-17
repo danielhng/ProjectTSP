@@ -1,0 +1,3 @@
+package eavesdropperris;
+
+@license(LGPL);

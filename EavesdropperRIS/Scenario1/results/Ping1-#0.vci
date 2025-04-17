@@ -1,0 +1,646 @@
+file 2449441 1744747110                                         
+version 3
+run Ping1-0-20250415-21:15:50-4815
+attr configname Ping1
+attr datetime 20250415-21:15:50
+attr datetimef 20250415-211550
+attr experiment Ping1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Net80211
+attr processid 4815
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../inet4.4/images:../../veins_inet/images:../../veins-veins-5.2/images
+config description "host1 pinging host0"
+config *.numHosts 2
+config network Net80211
+config num-rngs 3
+config **.mobility.rng-0 1
+config **.wlan[*].mac.rng-0 2
+config **.constraintAreaMinX 0m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxX 600m
+config **.constraintAreaMaxY 400m
+config **.constraintAreaMaxZ 0m
+config **.host*.mobility.typename MassMobility
+config **.host*.mobility.initFromDisplayString false
+config **.host*.mobility.changeInterval "truncnormal(2s, 0.5s)"
+config **.host*.mobility.angleDelta "normal(0deg, 30deg)"
+config **.host*.mobility.speed "truncnormal(20mps, 8mps)"
+config **.host*.mobility.updateInterval 100ms
+config *.host[0].numApps 0
+config *.host[*].numApps 2
+config *.host[*].app[*].typename PingApp
+config *.host[*].app[*].destAddr "\"host[0]\""
+config *.host[*].app[0].startTime uniform(1s,5s)
+config *.host[*].app[1].startTime 5s+uniform(1s,5s)
+config *.host[*].app[*].printPing true
+config **.wlan[*].bitrate 2Mbps
+config **.wlan[*].mac.dcf.channelAccess.cwMin 7
+config **.wlan[*].radio.transmitter.power 2mW
+config **.wlan[*].radio.receiver.sensitivity -85dBm
+config **.wlan[*].radio.receiver.snirThreshold 4dB
+
+vector 0 Net80211.host[0].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 1 Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 2 Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 3 Net80211.host[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 Net80211.host[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 Net80211.host[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 Net80211.host[1].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 7 Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 8 Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 9 Net80211.host[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 Net80211.host[1].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 Net80211.host[1].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 Net80211.host[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 13 Net80211.host[0].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 14 Net80211.host[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 15 Net80211.host[1].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 16 Net80211.host[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 17 Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 18 Net80211.host[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 19 Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 20 Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 21 Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+0	6644 16 0 0 0 0 2 0 0 0 0
+1	6660 16 0 0 0 0 2 0 0 0 0
+2	6676 16 0 0 0 0 2 0 0 0 0
+3	6692 8 0 0 0 0 1 0 0 0 0
+4	6700 8 0 0 0 0 1 0 0 0 0
+5	6708 8 0 0 0 0 1 0 0 0 0
+6	6716 16 0 0 0 0 2 0 0 0 0
+7	6732 16 0 0 0 0 2 0 0 0 0
+8	6748 16 0 0 0 0 2 0 0 0 0
+9	6764 8 0 0 0 0 1 0 0 0 0
+10	6772 9 0 0 0 0 1 0 0 0 0
+11	6781 9 0 0 0 0 1 0 0 0 0
+12	6790 27 0 0 0 0 3 0 2 2 4
+13	6817 9 0 0 0 0 1 0 0 0 0
+14	6826 27 0 0 0 0 3 0 2 2 4
+15	6853 9 0 0 0 0 1 0 0 0 0
+16	6862 9 0 0 0 0 1 1 1 1 1
+17	6871 18 0 0 0 0 2 0 0 0 0
+18	6889 9 0 0 0 0 1 1 1 1 1
+19	6898 18 0 0 0 0 2 0 0 0 0
+20	6916 9 0 0 0 0 1 7 7 7 49
+21	6925 9 0 0 0 0 1 7 7 7 49
+vector 22 Net80211.host[1].app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping tx seq"
+vector 23 Net80211.host[1].ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 24 Net80211.host[1].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 25 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 26 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 27 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 28 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 29 Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 30 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 31 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 32 Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 33 Net80211.host[1].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 34 Net80211.host[1].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 35 Net80211.host[1].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 36 Net80211.host[1].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 37 Net80211.host[1].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 38 Net80211.host[1].wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 39 Net80211.host[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 40 Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+6	11410 136 72 145 3.195254009217 5.195702009217 6 0 1 3 3
+7	11546 136 72 145 3.195254009217 5.195702009217 6 0 1 3 3
+8	11682 136 70 140 3.195254009217 5.195254009217 6 0 1 3 3
+14	11818 142 73 146 3.195254009217 5.195702009217 6 2 3 15 39
+18	11960 142 73 146 3.195254009217 5.195702009217 6 0 1 3 3
+19	12102 568 70 146 3.195254009217 5.195702009217 24 0 2 12 24
+22	12670 71 66 135 3.195254009217 5.195254009217 3 0 2 3 5
+23	12741 74 68 136 3.195254009217 5.195254009217 3 28 28 84 2352
+24	12815 74 70 139 3.195254009217 5.195254009217 3 36 36 108 3888
+25	12889 77 70 139 3.195254009217 5.195254009217 3 512 512 1536 786432
+26	12966 628 70 139 0.1 5.1 51 0 5120 10240 52428800
+27	13594 142 70 141 3.195254009217 5.195254009217 6 0 1 3 3
+28	13736 148 70 141 3.195254009217 5.195254009217 6 0 512 1536 786432
+29	13884 71 70 139 3.195254009217 5.195254009217 3 0 5 8 34
+30	13955 71 72 141 3.195254009217 5.195254009217 3 0 0 0 0
+31	14026 77 72 141 3.195254009217 5.195254009217 3 512 512 1536 786432
+32	14103 628 72 141 0.1 5.1 51 0 5120 10240 52428800
+33	14731 89 72 141 3.195254009217 5.195254009217 3 2000000 2000000 6000000 12000000000000
+34	14820 74 72 141 3.195254009217 5.195254009217 3 64 64 192 12288
+35	14894 284 73 146 3.195254009217 5.195702009217 12 0 2 12 18
+36	15178 74 76 145 3.195702009217 5.195702009217 3 64 64 192 12288
+37	15252 74 76 145 3.195702009217 5.195702009217 3 64 64 192 12288
+38	15326 74 76 145 3.195702009217 5.195702009217 3 64 64 192 12288
+39	15400 74 76 145 3.195702009217 5.195702009217 3 64 64 192 12288
+40	15474 92 76 145 3.195702009217 5.195702009217 3 0.000448 0.000448 0.001344 6.02112e-07
+vector 41 Net80211.host[1].ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, packetBytes"
+vector 42 Net80211.host[1].app[1] pingTxSeq:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping tx seq"
+vector 43 Net80211.host[0].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 44 Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 45 Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 46 Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 47 Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 48 Net80211.host[0].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 49 Net80211.host[0].ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 50 Net80211.host[0].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 51 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 52 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 53 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 54 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 55 Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 56 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 57 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 58 Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 59 Net80211.host[0].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 60 Net80211.host[0].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 61 Net80211.host[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 62 Net80211.host[0].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 63 Net80211.host[0].wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 64 Net80211.host[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 65 Net80211.host[0].wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 66 Net80211.host[1].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 67 Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 68 Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, packetBytes"
+vector 69 Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 70 Net80211.host[1].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 71 Net80211.host[1].wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 72 Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, packetBytes"
+vector 73 Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 74 Net80211.host[1].wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 75 Net80211.host[1].app[0] pingRxSeq:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping rx seq"
+vector 76 Net80211.host[1].app[0] rtt:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping round-trip time"
+attr unit s
+vector 77 Net80211.host[1].app[0] numLost:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pings lost"
+vector 78 Net80211.host[1].app[1] pingRxSeq:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping rx seq"
+vector 79 Net80211.host[1].app[1] rtt:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping round-trip time"
+attr unit s
+vector 80 Net80211.host[1].app[1] numLost:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pings lost"
+vector 81 Net80211.host[1].wlan[0].mac.dcf packetSentToPeerWithRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, packetBytes"
+vector 82 Net80211.host[1].wlan[0].mac.dcf packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropped
+attr title "packet drops, packetBytes"
+vector 83 Net80211.host[1].wlan[0].mac.dcf packetDropRetryLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, packetBytes"
+vector 84 Net80211.host[1].wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropped
+attr title "packet drops, packetBytes"
+vector 85 Net80211.host[1].wlan[0].mac packetDropRetryLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, packetBytes"
+vector 86 Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, packetBytes"
+0	25889 9716 733 30842 21.195892801174 211.373330950514 372 0 1 186 186
+1	35605 9716 733 30842 21.195892801174 211.373330950514 372 0 1 186 186
+2	45321 19322 731 30819 21.195702801174 211.37239929378 740 0 1 370 370
+6	64643 95187 176 34153 6.195254009217 230.195254009217 3613 0 1 1807 1807
+7	159830 22729 176 34153 6.195254009217 230.195254009217 867 0 2 438 442
+8	182559 95548 174 34152 6.195254009217 230.195254009217 3626 0 1 1813 1813
+12	278107 20062 734 30825 21.195892801174 211.37307129378 740 2 3 1850 4810
+14	298169 108937 177 34158 6.195254009217 230.195926009217 3986 2 3 9965 25909
+16	407106 40613 723 30841 21.195254801174 211.373330950514 1498 0 3 1879 4125
+17	447719 81220 723 30841 21.195254801174 211.373330950514 2996 0 2 1848 3328
+18	528939 129021 177 34158 6.195254009217 230.195926009217 4726 0 3 3473 5693
+19	657960 435658 174 34154 6.195254009217 230.195254009217 15942 0 2 10010 17262
+21	1093618 2544 3115 31024 38.372272465556 212.385772465556 89 7 1023 18239 10448873
+22	1096162 6457 170 34148 6.195254009217 230.195254009217 225 3 227 25875 3924825
+23	1102619 557 172 20996 6.195254009217 145.371378465556 21 28 28 588 16464
+24	1103176 12254 174 34151 6.195254009217 230.195254009217 434 36 92 38752 3522848
+25	1115430 12688 174 34151 6.195254009217 230.195254009217 434 512 960 407232 386125824
+26	1128118 37182 174 34151 5.2 230.1 2250 0 33920 4067840 39492812800
+27	1165300 23640 174 34153 6.195254009217 230.195254009217 868 0 3 440 450
+28	1188940 24515 174 34153 6.195254009217 230.195254009217 868 0 2880 412992 400871424
+29	1213455 52453 174 34151 6.195254009217 230.195254009217 1807 0 1022 792311 537028743
+30	1265908 11854 176 34153 6.195254009217 230.195254009217 434 0 0.014469525984 0.039773525984 0.00051847825420165
+31	1277762 12688 176 34153 6.195254009217 230.195254009217 434 512 960 407232 386125824
+32	1290450 37182 176 34153 5.2 230.1 2250 0 33920 4067840 39492812800
+33	1327632 66426 176 34153 6.195254009217 230.195254009217 1993 2000000 2000000 3986000000 7.972e+15
+34	1394058 58247 176 34153 6.195254009217 230.195254009217 1993 14 120 218268 25840872
+35	1452305 217873 177 34158 6.195254009217 230.195926009217 7972 0 2 7972 11958
+36	1670178 58247 180 34157 6.195702009217 230.195926009217 1993 14 120 218268 25840872
+37	1728425 557 180 21005 6.195702009217 145.371826465556 21 64 64 1344 86016
+38	1728982 557 180 21005 6.195702009217 145.371826465556 21 64 64 1344 86016
+39	1729539 17899 180 34157 6.195702009217 230.195926009217 620 14 120 53508 6069672
+40	1747438 15887 180 34127 6.195702009217 229.416292465556 433 0.000448 0.118334 15.26751163557 1.0710931380916
+41	1763325 973 171 20959 6.195254009217 144.371378465556 37 84 84 3108 261072
+42	1764298 6369 258 34049 8.371378465556 229.371378465556 222 0 221 24531 3622411
+43	1770667 10644 727 30842 21.195702801174 211.373330950514 372 14 120 24812 2694248
+44	1781311 10644 727 30842 21.195702801174 211.373330950514 372 14 120 24812 2694248
+45	1791955 55 727 21008 21.195702801174 145.371827231182 2 64 64 128 8192
+46	1792010 55 727 21008 21.195702801174 145.371827231182 2 64 64 128 8192
+47	1792065 10586 727 30842 21.195702801174 211.373330950514 370 14 120 24572 2665448
+48	1802651 5228 727 30802 21.195702801174 211.37205129378 186 36 92 17000 1559968
+49	1807879 55 729 21010 21.195702801174 145.371827231182 2 28 28 56 1568
+50	1807934 5228 731 30808 21.195702801174 211.37205129378 186 36 92 17000 1559968
+51	1813162 5414 731 30808 21.195702801174 211.37205129378 186 512 960 177664 170098688
+52	1818576 34030 731 30808 0.1 211.3 2113 0 33920 1767040 17863884800
+53	1852606 10084 731 30820 21.195702801174 211.37239929378 372 0 1 186 186
+54	1862690 10456 731 30820 21.195702801174 211.37239929378 372 0 960 177664 170098688
+55	1873146 5042 731 30808 21.195702801174 211.37205129378 186 0 7 627 3095
+56	1878188 6340 733 30820 21.195892801174 211.37239929378 186 5e-05 0.000448 0.069312 2.6350376e-05
+57	1884528 5414 733 30820 21.195892801174 211.37239929378 186 512 960 177664 170098688
+58	1889942 34030 733 30820 0.1 211.3 2113 0 33920 1767040 17863884800
+59	1923972 12251 733 30820 21.195892801174 211.37239929378 370 2000000 2000000 740000000 1.48e+15
+60	1936223 10585 733 30820 21.195892801174 211.37239929378 370 14 120 24784 2693856
+61	1946808 40124 734 30825 21.195892801174 211.37307129378 1480 0 2 1480 2220
+62	1986932 10585 737 30824 21.196340801174 211.37307129378 370 14 120 24784 2693856
+63	1997517 10585 737 30824 21.196340801174 211.37307129378 370 14 120 24784 2693856
+64	2008102 10585 737 30824 21.196340801174 211.37307129378 370 14 120 24784 2693856
+65	2018687 16428 737 30838 21.196340801174 211.37332929378 558 0 0.000258 0.047988 1.2380904e-05
+66	2035115 10596 740 30827 21.196341593102 211.373072122111 370 14 120 24784 2693856
+67	2045711 10596 740 30827 21.196341593102 211.373072122111 370 14 120 24784 2693856
+68	2056307 10596 740 30827 21.196341593102 211.373072122111 370 14 120 24784 2693856
+69	2066903 10596 740 30827 21.196341593102 211.373072122111 370 14 120 24784 2693856
+70	2077499 5232 740 30827 21.196341593102 211.373072122111 186 36 92 17000 1559968
+71	2082731 57690 751 34157 21.196599593102 230.195926009217 1972 14 120 216924 25754856
+72	2140421 10589 754 30842 21.196600385009 211.373330950514 370 14 120 24684 2686056
+73	2151010 7442 754 30842 21.196600385009 211.373330950514 186 0.000707530977 0.000931658368 0.172743700194 0.00016053111449424
+74	2158452 159132 760 34157 21.197461593102 230.195926009217 5357 0 0.000258 0.46078799999999 0.000118883304
+75	2317584 2640 791 30770 21.198563176828 211.1969076287 92 18 208 10886 1647598
+76	2320224 3679 791 30770 21.198563176828 211.1969076287 92 0.001653054725 0.193255038687 0.428645371915 0.040881216047626
+77	2323903 169 791 29694 21.198563176828 203.19702739681 6 18 117 405 34705
+78	2324072 2648 856 30831 21.373052031617 211.373072122111 92 13 203 10532 1558634
+79	2326720 3689 856 30831 21.373052031617 211.373072122111 92 0.001652098582 1.015069057142 1.188942423504 1.0310002540848
+80	2330409 169 856 29755 21.373052031617 203.373091788445 6 13 112 378 31116
+81	2330578 40348 3122 34124 38.373070465556 229.416070465556 1373 120 120 164760 19771200
+82	2370926 6700 3176 34127 38.382052465556 229.416292465556 228 120 120 27360 3283200
+83	2377626 6700 3176 34127 38.382052465556 229.416292465556 228 120 120 27360 3283200
+84	2384326 6700 3176 34127 38.382052465556 229.416292465556 228 120 120 27360 3283200
+85	2391026 6700 3176 34127 38.382052465556 229.416292465556 228 120 120 27360 3283200
+86	2397726 58 11870 16955 90.236846838224 119.23206683846 2 120 120 240 28800
+6	2397784 2619 34160 34775 230.196148009217 233.260308009217 97 0 1 48 48
+7	2400403 351 34225 34775 230.239188009217 233.260308009217 13 0 1 6 6
+8	2400754 2592 34161 34766 230.196184009217 233.259414009217 96 0 1 48 48
+14	2403346 2688 34166 34773 230.212814009217 233.260086009217 96 2 3 240 624
+18	2406034 2688 34166 34773 230.212814009217 233.260086009217 96 0 1 48 48
+19	2408722 10808 34160 34776 230.196148009217 233.260344009217 386 0 2 276 468
+22	2419530 90 34331 34695 231.195254009217 233.195254009217 3 228 230 687 157325
+24	2419620 174 34236 34698 230.371378465556 233.195254009217 6 92 92 552 50784
+25	2419794 180 34236 34698 230.371378465556 233.195254009217 6 960 960 5760 5529600
+26	2419974 522 34236 34698 230.2 233.1 30 0 9600 57600 552960000
+27	2420496 336 34236 34700 230.371378465556 233.195254009217 12 0 1 6 6
+28	2420832 348 34236 34700 230.371378465556 233.195254009217 12 0 960 5760 5529600
+29	2421180 1437 34160 34763 230.196148009217 233.249968009217 48 28 1011 24644 17108540
+30	2422617 168 34238 34700 230.371378465556 233.195254009217 6 0 0 0 0
+31	2422785 180 34238 34700 230.371378465556 233.195254009217 6 960 960 5760 5529600
+32	2422965 522 34238 34700 230.2 233.1 30 0 9600 57600 552960000
+33	2423487 1632 34165 34767 230.212814009217 233.259414009217 48 2000000 2000000 96000000 1.92e+14
+34	2425119 1440 34165 34767 230.212814009217 233.259414009217 48 120 120 5760 691200
+35	2426559 5376 34166 34773 230.212814009217 233.260086009217 192 0 2 192 288
+36	2431935 1440 34169 34772 230.213486009217 233.260086009217 48 120 120 5760 691200
+39	2433375 180 34242 34704 230.372050465556 233.195926009217 6 120 120 720 86400
+40	2433555 245 34225 34775 230.239188009217 233.260308009217 7 0.043934 0.097074 0.481318 0.034722129532
+42	2433800 120 34233 34780 230.371378465556 233.371378465556 4 222 225 894 199814
+71	2433920 1440 34169 34772 230.213486009217 233.260086009217 48 120 120 5760 691200
+74	2435360 4396 34161 34776 230.196184009217 233.260344009217 145 0 0.000258 0.012384 3.195072e-06
+81	2439756 1260 34169 34772 230.213486009217 233.260086009217 42 120 120 5040 604800
+82	2441016 210 34225 34775 230.239188009217 233.260308009217 7 120 120 840 100800
+83	2441226 210 34225 34775 230.239188009217 233.260308009217 7 120 120 840 100800
+84	2441436 210 34225 34775 230.239188009217 233.260308009217 7 120 120 840 100800
+85	2441646 210 34225 34775 230.239188009217 233.260308009217 7 120 120 840 100800
+26	2441856 65 34780 34780 233.2 233.371378465556 3 0 9600 9600 92160000
+32	2441921 65 34780 34780 233.2 233.371378465556 3 0 9600 9600 92160000
+52	2441986 3727 34780 34780 211.4 233.371378465556 221 0 9600 9600 92160000
+58	2445713 3727 34780 34780 211.4 233.371378465556 221 0 9600 9600 92160000
+

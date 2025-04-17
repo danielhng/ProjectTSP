@@ -1,0 +1,3692 @@
+version 3
+run Ping1-0-20250415-21:15:50-4815
+attr configname Ping1
+attr datetime 20250415-21:15:50
+attr datetimef 20250415-211550
+attr experiment Ping1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Net80211
+attr processid 4815
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../inet4.4/images:../../veins_inet/images:../../veins-veins-5.2/images
+config description "host1 pinging host0"
+config *.numHosts 2
+config network Net80211
+config num-rngs 3
+config **.mobility.rng-0 1
+config **.wlan[*].mac.rng-0 2
+config **.constraintAreaMinX 0m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxX 600m
+config **.constraintAreaMaxY 400m
+config **.constraintAreaMaxZ 0m
+config **.host*.mobility.typename MassMobility
+config **.host*.mobility.initFromDisplayString false
+config **.host*.mobility.changeInterval "truncnormal(2s, 0.5s)"
+config **.host*.mobility.angleDelta "normal(0deg, 30deg)"
+config **.host*.mobility.speed "truncnormal(20mps, 8mps)"
+config **.host*.mobility.updateInterval 100ms
+config *.host[0].numApps 0
+config *.host[*].numApps 2
+config *.host[*].app[*].typename PingApp
+config *.host[*].app[*].destAddr "\"host[0]\""
+config *.host[*].app[0].startTime uniform(1s,5s)
+config *.host[*].app[1].startTime 5s+uniform(1s,5s)
+config *.host[*].app[*].printPing true
+config **.wlan[*].bitrate 2Mbps
+config **.wlan[*].mac.dcf.channelAccess.cwMin 7
+config **.wlan[*].radio.transmitter.power 2mW
+config **.wlan[*].radio.receiver.sensitivity -85dBm
+config **.wlan[*].radio.receiver.snirThreshold 4dB
+
+par Net80211.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator\""
+par Net80211.configurator minLinkWeight 0.001
+par Net80211.configurator configureIsolatedNetworksSeparatly false
+par Net80211.configurator config "<config>...</config> at content:1"
+par Net80211.configurator assignAddresses true
+par Net80211.configurator assignUniqueAddresses true
+par Net80211.configurator assignDisjunctSubnetAddresses true
+par Net80211.configurator addStaticRoutes true
+par Net80211.configurator addDefaultRoutes true
+par Net80211.configurator addSubnetRoutes true
+par Net80211.configurator addDirectRoutes true
+par Net80211.configurator optimizeRoutes true
+par Net80211.configurator dumpTopology false
+par Net80211.configurator dumpLinks false
+par Net80211.configurator dumpAddresses false
+par Net80211.configurator dumpRoutes false
+par Net80211.configurator dumpConfig "\"\""
+par Net80211.radioMedium.propagation typename "\"inet.physicallayer.wireless.common.propagation.ConstantSpeedPropagation\""
+par Net80211.radioMedium.propagation propagationSpeed 2.99792e+08mps
+attr unit mps
+par Net80211.radioMedium.propagation ignoreMovementDuringTransmission true
+par Net80211.radioMedium.propagation ignoreMovementDuringPropagation true
+par Net80211.radioMedium.propagation ignoreMovementDuringReception true
+scalar Net80211.radioMedium.propagation "Arrival computation count" 2414
+par Net80211.radioMedium.analogModel typename "\"inet.physicallayer.wireless.common.analogmodel.packetlevel.ScalarAnalogModel\""
+par Net80211.radioMedium.analogModel ignorePartialInterference false
+par Net80211.radioMedium.backgroundNoise typename "\"inet.physicallayer.wireless.common.backgroundnoise.IsotropicScalarBackgroundNoise\""
+par Net80211.radioMedium.backgroundNoise power -110dBm
+attr unit dBm
+par Net80211.radioMedium.backgroundNoise bandwidth "nan Hz"
+attr unit Hz
+par Net80211.radioMedium.pathLoss typename "\"inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss\""
+par Net80211.radioMedium.pathLoss alpha 2
+par Net80211.radioMedium.pathLoss systemLoss 0dB
+attr unit dB
+par Net80211.radioMedium.mediumLimitCache typename "\"inet.physicallayer.wireless.common.medium.MediumLimitCache\""
+par Net80211.radioMedium.mediumLimitCache centerFrequency 2.4e+09Hz
+attr unit Hz
+par Net80211.radioMedium.mediumLimitCache maxSpeed "nan mps"
+attr unit mps
+par Net80211.radioMedium.mediumLimitCache maxTransmissionPower "nan W"
+attr unit W
+par Net80211.radioMedium.mediumLimitCache minInterferencePower -110dBm
+attr unit dBm
+par Net80211.radioMedium.mediumLimitCache minReceptionPower -85dBm
+attr unit dBm
+par Net80211.radioMedium.mediumLimitCache maxAntennaGain 0dB
+attr unit dB
+par Net80211.radioMedium.mediumLimitCache minInterferenceTime 1e-12s
+attr unit s
+par Net80211.radioMedium.mediumLimitCache maxTransmissionDuration 0.01s
+attr unit s
+par Net80211.radioMedium.mediumLimitCache maxCommunicationRange "nan m"
+attr unit m
+par Net80211.radioMedium.mediumLimitCache maxInterferenceRange "nan m"
+attr unit m
+par Net80211.radioMedium.communicationCache typename "\"inet.physicallayer.wireless.common.communicationcache.VectorCommunicationCache\""
+par Net80211.radioMedium typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium\""
+par Net80211.radioMedium physicalEnvironmentModule "\"physicalEnvironment\""
+par Net80211.radioMedium signalAnalogRepresentation "\"scalar\""
+attr enum unitDisk,scalar,dimensional
+par Net80211.radioMedium rangeFilter "\"\""
+par Net80211.radioMedium radioModeFilter false
+par Net80211.radioMedium listeningFilter false
+par Net80211.radioMedium macAddressFilter false
+par Net80211.radioMedium recordTransmissionLog false
+par Net80211.radioMedium recordReceptionLog false
+scalar Net80211.radioMedium "transmission count" 2414
+scalar Net80211.radioMedium "signal send count" 2414
+scalar Net80211.radioMedium "reception computation count" 2414
+scalar Net80211.radioMedium "interference computation count" 9660
+scalar Net80211.radioMedium "reception decision computation count" 742
+scalar Net80211.radioMedium "listening decision computation count" 6504
+scalar Net80211.radioMedium "reception cache hit" 79.683554957078
+attr unit %
+scalar Net80211.radioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar Net80211.radioMedium "noise cache hit" 0
+attr unit %
+scalar Net80211.radioMedium "snir cache hit" 50
+attr unit %
+scalar Net80211.radioMedium "reception decision cache hit" 50
+attr unit %
+scalar Net80211.radioMedium "reception result cache hit" 0
+attr unit %
+par Net80211.host[0].radioIn[0].channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].mobility typename "\"inet.mobility.single.MassMobility\""
+par Net80211.host[0].mobility subjectModule "\"^\""
+par Net80211.host[0].mobility coordinateSystemModule "\"\""
+par Net80211.host[0].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par Net80211.host[0].mobility updateDisplayString true
+par Net80211.host[0].mobility constraintAreaMinX 0m
+attr unit m
+par Net80211.host[0].mobility constraintAreaMinY 0m
+attr unit m
+par Net80211.host[0].mobility constraintAreaMinZ 0m
+attr unit m
+par Net80211.host[0].mobility constraintAreaMaxX 600m
+attr unit m
+par Net80211.host[0].mobility constraintAreaMaxY 400m
+attr unit m
+par Net80211.host[0].mobility constraintAreaMaxZ 0m
+attr unit m
+par Net80211.host[0].mobility updateInterval 0.1s
+attr unit s
+par Net80211.host[0].mobility faceForward true
+par Net80211.host[0].mobility initialX 250.213m
+attr unit m
+par Net80211.host[0].mobility initialY 398.874m
+attr unit m
+par Net80211.host[0].mobility initialZ 0m
+attr unit m
+par Net80211.host[0].mobility initialMovementHeading 335.721deg
+attr unit deg
+par Net80211.host[0].mobility initialMovementElevation 0deg
+attr unit deg
+par Net80211.host[0].mobility initFromDisplayString false
+par Net80211.host[0].mobility changeInterval "truncnormal(2s, 0.5s)"
+attr unit s
+par Net80211.host[0].mobility angleDelta "normal(0deg, 30deg)"
+attr unit deg
+par Net80211.host[0].mobility rotationAxisAngle 0deg
+attr unit deg
+par Net80211.host[0].mobility speed "truncnormal(20mps, 8mps)"
+attr mutable ""
+attr unit mps
+par Net80211.host[0].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par Net80211.host[0].interfaceTable displayAddresses false
+par Net80211.host[0].cb typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].cb forwardServiceRegistration true
+par Net80211.host[0].cb forwardProtocolRegistration true
+par Net80211.host[0].bl typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].bl forwardServiceRegistration true
+par Net80211.host[0].bl forwardProtocolRegistration true
+par Net80211.host[0].li typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].li displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].li forwardServiceRegistration true
+par Net80211.host[0].li forwardProtocolRegistration true
+par Net80211.host[0].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par Net80211.host[0].lo[0].lo interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].lo[0].lo mtu 4470B
+attr unit B
+scalar Net80211.host[0].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Net80211.host[0].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Net80211.host[0].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Net80211.host[0].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par Net80211.host[0].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par Net80211.host[0].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par Net80211.host[0].lo[0] recordPcap false
+par Net80211.host[0].lo[0] numPcapRecorders 0
+par Net80211.host[0].lo[0] interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+scalar Net80211.host[0].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar Net80211.host[0].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar Net80211.host[0].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar Net80211.host[0].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par Net80211.host[0].wlan[0].radioIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].wlan[0].llc.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].wlan[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].wlan[0].mib typename "\"inet.linklayer.ieee80211.mib.Ieee80211Mib\""
+par Net80211.host[0].wlan[0].llc typename "\"inet.linklayer.ieee80211.llc.Ieee80211LlcLpd\""
+par Net80211.host[0].wlan[0].llc registerProtocol false
+par Net80211.host[0].wlan[0].mgmt typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc\""
+par Net80211.host[0].wlan[0].mgmt mibModule "\"Net80211.host[0].wlan[0].mib\""
+par Net80211.host[0].wlan[0].mgmt macModule "\"Net80211.host[0].wlan[0].mac\""
+par Net80211.host[0].wlan[0].mgmt interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue typename "\"inet.linklayer.ieee80211.mac.queue.PendingQueue\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue displayStringTextFormat "\"contains %p pk (%l) pushed %u\\npulled %o removed %r dropped %d\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetCapacity 100
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue dataCapacity -1b
+attr unit b
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue dropperClass "\"inet::queueing::PacketAtCollectionEndDropper\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue comparatorClass "\"inet::ieee80211::MgmtOverDataComparator\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue bufferModule "\"\""
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, last"
+attr unit pk
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, max"
+attr unit pk
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 0.00032667269602401
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, timeavg"
+attr unit pk
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, last"
+attr unit b
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 960
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, max"
+attr unit b
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0.31309903829448
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, timeavg"
+attr unit b
+statistic Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 186
+field mean 0.00037264516129032
+field stddev 5.3098306617533e-05
+field min 5e-05
+field max 0.000448
+field sum 0.069312
+field sqrsum 2.6350376e-05
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+bin	-inf	0
+bin	4.5e-05	1
+bin	5.5e-05	0
+bin	6.5e-05	0
+bin	7.5e-05	0
+bin	8.5e-05	0
+bin	9.5e-05	0
+bin	0.000105	0
+bin	0.000115	0
+bin	0.000125	0
+bin	0.000135	0
+bin	0.000145	0
+bin	0.000155	0
+bin	0.000165	0
+bin	0.000175	0
+bin	0.000185	1
+bin	0.000195	0
+bin	0.000205	0
+bin	0.000215	0
+bin	0.000225	0
+bin	0.000235	0
+bin	0.000245	0
+bin	0.000255	0
+bin	0.000265	0
+bin	0.000275	0
+bin	0.000285	0
+bin	0.000295	0
+bin	0.000305	23
+bin	0.000315	0
+bin	0.000325	29
+bin	0.000335	0
+bin	0.000345	23
+bin	0.000355	0
+bin	0.000365	21
+bin	0.000375	0
+bin	0.000385	18
+bin	0.000395	0
+bin	0.000405	29
+bin	0.000415	0
+bin	0.000425	22
+bin	0.000435	0
+bin	0.000445	19
+bin	0.000455	0
+bin	0.000465	0
+bin	0.000475	0
+bin	0.000485	0
+bin	0.000495	0
+bin	0.000505	0
+bin	0.000515	0
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPackets:count 186
+attr recordingmode count
+attr source packetPulled
+attr title "outgoing packets, count"
+attr unit pk
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 177664
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths, sum"
+attr unit b
+statistic Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
+field count 186
+field mean 955.18279569892
+field stddev 46.329710562343
+field min 512
+field max 960
+field sum 177664
+field sqrsum 170098688
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+bin	-inf	0
+bin	400	0
+bin	410	0
+bin	420	0
+bin	430	0
+bin	440	0
+bin	450	0
+bin	460	0
+bin	470	0
+bin	480	0
+bin	490	0
+bin	500	0
+bin	510	2
+bin	520	0
+bin	530	0
+bin	540	0
+bin	550	0
+bin	560	0
+bin	570	0
+bin	580	0
+bin	590	0
+bin	600	0
+bin	610	0
+bin	620	0
+bin	630	0
+bin	640	0
+bin	650	0
+bin	660	0
+bin	670	0
+bin	680	0
+bin	690	0
+bin	700	0
+bin	710	0
+bin	720	0
+bin	730	0
+bin	740	0
+bin	750	0
+bin	760	0
+bin	770	0
+bin	780	0
+bin	790	0
+bin	800	0
+bin	810	0
+bin	820	0
+bin	830	0
+bin	840	0
+bin	850	0
+bin	860	0
+bin	870	0
+bin	880	0
+bin	890	0
+bin	900	0
+bin	910	0
+bin	920	0
+bin	930	0
+bin	940	0
+bin	950	0
+bin	960	184
+bin	970	0
+bin	980	0
+bin	990	0
+bin	1000	0
+bin	1010	0
+bin	1020	0
+bin	1030	0
+bin	1040	0
+bin	1050	0
+bin	1060	0
+bin	1070	0
+bin	1080	0
+statistic Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPackets:count 186
+attr recordingmode count
+attr source packetPushStarted
+attr title "incoming packets, count"
+attr unit pk
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 177664
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths, sum"
+attr unit b
+statistic Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
+field count 186
+field mean 955.18279569892
+field stddev 46.329710562343
+field min 512
+field max 960
+field sum 177664
+field sqrsum 170098688
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+bin	-inf	0
+bin	400	0
+bin	410	0
+bin	420	0
+bin	430	0
+bin	440	0
+bin	450	0
+bin	460	0
+bin	470	0
+bin	480	0
+bin	490	0
+bin	500	0
+bin	510	2
+bin	520	0
+bin	530	0
+bin	540	0
+bin	550	0
+bin	560	0
+bin	570	0
+bin	580	0
+bin	590	0
+bin	600	0
+bin	610	0
+bin	620	0
+bin	630	0
+bin	640	0
+bin	650	0
+bin	660	0
+bin	670	0
+bin	680	0
+bin	690	0
+bin	700	0
+bin	710	0
+bin	720	0
+bin	730	0
+bin	740	0
+bin	750	0
+bin	760	0
+bin	770	0
+bin	780	0
+bin	790	0
+bin	800	0
+bin	810	0
+bin	820	0
+bin	830	0
+bin	840	0
+bin	850	0
+bin	860	0
+bin	870	0
+bin	880	0
+bin	890	0
+bin	900	0
+bin	910	0
+bin	920	0
+bin	930	0
+bin	940	0
+bin	950	0
+bin	960	184
+bin	970	0
+bin	980	0
+bin	990	0
+bin	1000	0
+bin	1010	0
+bin	1020	0
+bin	1030	0
+bin	1040	0
+bin	1050	0
+bin	1060	0
+bin	1070	0
+bin	1080	0
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "dropped packets: queue overflow, count"
+attr unit pk
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketLengthsQueueOverflow:sum 0
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow, sum"
+attr unit b
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames typename "\"inet.linklayer.ieee80211.mac.queue.InProgressFrames\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames pendingQueueModule "\"^.pendingQueue\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMacDataServiceModule "\"^.^.originatorMacDataService\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
+statistic Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 186
+field mean 0.00092872957093548
+field stddev 2.3125033967609e-05
+field min 0.000707530977
+field max 0.000931658368
+field sum 0.172743700194
+field sqrsum 0.00016053111449424
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+bin	-inf	0
+bin	0.00065	0
+bin	0.000655	0
+bin	0.00066	0
+bin	0.000665	0
+bin	0.00067	0
+bin	0.000675	0
+bin	0.00068	0
+bin	0.000685	0
+bin	0.00069	0
+bin	0.000695	0
+bin	0.0007	0
+bin	0.000705	2
+bin	0.00071	0
+bin	0.000715	0
+bin	0.00072	0
+bin	0.000725	0
+bin	0.00073	0
+bin	0.000735	0
+bin	0.00074	0
+bin	0.000745	0
+bin	0.00075	0
+bin	0.000755	0
+bin	0.00076	0
+bin	0.000765	0
+bin	0.00077	0
+bin	0.000775	0
+bin	0.00078	0
+bin	0.000785	0
+bin	0.00079	0
+bin	0.000795	0
+bin	0.0008	0
+bin	0.000805	0
+bin	0.00081	0
+bin	0.000815	0
+bin	0.00082	0
+bin	0.000825	0
+bin	0.00083	0
+bin	0.000835	0
+bin	0.00084	0
+bin	0.000845	0
+bin	0.00085	0
+bin	0.000855	0
+bin	0.00086	0
+bin	0.000865	0
+bin	0.00087	0
+bin	0.000875	0
+bin	0.00088	0
+bin	0.000885	0
+bin	0.00089	0
+bin	0.000895	0
+bin	0.0009	0
+bin	0.000905	0
+bin	0.00091	0
+bin	0.000915	0
+bin	0.00092	0
+bin	0.000925	0
+bin	0.00093	184
+bin	0.000935	0
+bin	0.00094	0
+bin	0.000945	0
+bin	0.00095	0
+bin	0.000955	0
+bin	0.00096	0
+bin	0.000965	0
+bin	0.00097	0
+bin	0.000975	0
+bin	0.00098	0
+bin	0.000985	0
+bin	0.00099	0
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, max"
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.00074020945211795
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, timeavg"
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention typename "\"inet.linklayer.ieee80211.mac.contention.Contention\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention initialChannelBusy true
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention backoffOptimization true
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 186
+attr recordingmode count
+attr title "channel access granted, count"
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess.contention stateChanged:count 2998
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode count
+attr title "contention state changed, count"
+attr type enum
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess typename "\"inet.linklayer.ieee80211.mac.channelaccess.Dcaf\""
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess difsn -1
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess cwMin 7
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess cwMax -1
+par Net80211.host[0].wlan[0].mac.dcf.channelAccess rxModule "\"^.^.rx\""
+scalar Net80211.host[0].wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 372
+attr interpolationmode sample-hold
+attr recordingmode count
+attr title "channel ownership, count"
+par Net80211.host[0].wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy typename "\"inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy\""
+par Net80211.host[0].wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy fragmentationThreshold 1500B
+attr unit B
+par Net80211.host[0].wlan[0].mac.dcf.originatorMacDataService typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService\""
+scalar Net80211.host[0].wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr recordingmode count
+attr title "packets aggregated, count"
+scalar Net80211.host[0].wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr recordingmode count
+attr title "packets fragmented, count"
+par Net80211.host[0].wlan[0].mac.dcf.recipientMacDataService typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService\""
+scalar Net80211.host[0].wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr recordingmode count
+attr title "packets deaggregated, count"
+scalar Net80211.host[0].wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 186
+attr recordingmode count
+attr title "packets defragmented, count"
+scalar Net80211.host[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar Net80211.host[0].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection typename "\"inet.linklayer.ieee80211.mac.rateselection.RateSelection\""
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection rateControlModule "\"^.rateControl\""
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection multicastFrameBitrate -1bps
+attr unit bps
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection responseAckFrameBitrate -1bps
+attr unit bps
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection responseCtsFrameBitrate -1bps
+attr unit bps
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection dataFrameBitrate 2e+06bps
+attr unit bps
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection dataFrameBandwidth "nan Hz"
+attr unit Hz
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection dataFrameNumSpatialStreams -1
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection mgmtFrameBitrate -1bps
+attr unit bps
+par Net80211.host[0].wlan[0].mac.dcf.rateSelection controlFrameBitrate -1bps
+attr unit bps
+par Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure typename "\"inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure\""
+par Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure cwCalculatorModule "\"^.channelAccess\""
+par Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure rtsPolicyModule "\"^.rtsPolicy\""
+par Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure shortRetryLimit 7
+par Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure longRetryLimit 4
+scalar Net80211.host[0].wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr recordingmode count
+attr title "retry limit reached, count"
+par Net80211.host[0].wlan[0].mac.dcf.originatorProtectionMechanism typename "\"inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism\""
+par Net80211.host[0].wlan[0].mac.dcf.originatorProtectionMechanism rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[0].wlan[0].mac.dcf.ackHandler typename "\"inet.linklayer.ieee80211.mac.originator.AckHandler\""
+par Net80211.host[0].wlan[0].mac.dcf.originatorAckPolicy typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy\""
+par Net80211.host[0].wlan[0].mac.dcf.originatorAckPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[0].wlan[0].mac.dcf.originatorAckPolicy ackTimeout -1s
+attr unit s
+par Net80211.host[0].wlan[0].mac.dcf.recipientAckPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy\""
+par Net80211.host[0].wlan[0].mac.dcf.recipientAckPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[0].wlan[0].mac.dcf.rtsPolicy typename "\"inet.linklayer.ieee80211.mac.originator.RtsPolicy\""
+par Net80211.host[0].wlan[0].mac.dcf.rtsPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[0].wlan[0].mac.dcf.rtsPolicy ctsTimeout -1s
+attr unit s
+par Net80211.host[0].wlan[0].mac.dcf.rtsPolicy rtsThreshold 2346B
+attr unit B
+par Net80211.host[0].wlan[0].mac.dcf.ctsPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.CtsPolicy\""
+par Net80211.host[0].wlan[0].mac.dcf.ctsPolicy rxModule "\"^.^.rx\""
+par Net80211.host[0].wlan[0].mac.dcf.ctsPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[0].wlan[0].mac.dcf typename "\"inet.linklayer.ieee80211.mac.coordinationfunction.Dcf\""
+par Net80211.host[0].wlan[0].mac.dcf rxModule "\"^.rx\""
+par Net80211.host[0].wlan[0].mac.dcf txModule "\"^.tx\""
+scalar Net80211.host[0].wlan[0].mac.dcf frameSequenceFinished:count 186
+attr recordingmode count
+attr title "finished frame sequences, count"
+statistic Net80211.host[0].wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 186
+field mean 0.00092872957093548
+field stddev 2.3125033967609e-05
+field min 0.000707530977
+field max 0.000931658368
+field sum 0.172743700194
+field sqrsum 0.00016053111449424
+attr recordingmode histogram
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations"
+bin	-inf	0
+bin	0.00065	0
+bin	0.000655	0
+bin	0.00066	0
+bin	0.000665	0
+bin	0.00067	0
+bin	0.000675	0
+bin	0.00068	0
+bin	0.000685	0
+bin	0.00069	0
+bin	0.000695	0
+bin	0.0007	0
+bin	0.000705	2
+bin	0.00071	0
+bin	0.000715	0
+bin	0.00072	0
+bin	0.000725	0
+bin	0.00073	0
+bin	0.000735	0
+bin	0.00074	0
+bin	0.000745	0
+bin	0.00075	0
+bin	0.000755	0
+bin	0.00076	0
+bin	0.000765	0
+bin	0.00077	0
+bin	0.000775	0
+bin	0.00078	0
+bin	0.000785	0
+bin	0.00079	0
+bin	0.000795	0
+bin	0.0008	0
+bin	0.000805	0
+bin	0.00081	0
+bin	0.000815	0
+bin	0.00082	0
+bin	0.000825	0
+bin	0.00083	0
+bin	0.000835	0
+bin	0.00084	0
+bin	0.000845	0
+bin	0.00085	0
+bin	0.000855	0
+bin	0.00086	0
+bin	0.000865	0
+bin	0.00087	0
+bin	0.000875	0
+bin	0.00088	0
+bin	0.000885	0
+bin	0.00089	0
+bin	0.000895	0
+bin	0.0009	0
+bin	0.000905	0
+bin	0.00091	0
+bin	0.000915	0
+bin	0.00092	0
+bin	0.000925	0
+bin	0.00093	184
+bin	0.000935	0
+bin	0.00094	0
+bin	0.000945	0
+bin	0.00095	0
+bin	0.000955	0
+bin	0.00096	0
+bin	0.000965	0
+bin	0.00097	0
+bin	0.000975	0
+bin	0.00098	0
+bin	0.000985	0
+bin	0.00099	0
+statistic Net80211.host[0].wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 186
+field mean 2
+field stddev 0
+field min 2
+field max 2
+field sum 372
+field sqrsum 744
+attr recordingmode histogram
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets"
+bin	-inf	0
+bin	1	0
+bin	2	186
+bin	3	0
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeer:count 372
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 24812
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 370
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 24684
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 2
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 128
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 2
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 128
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 2
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 240
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 370
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 24572
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeer:count 370
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerUnicast:count 370
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerMulticast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerBroadcast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 370
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar Net80211.host[0].wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par Net80211.host[0].wlan[0].mac.ds typename "\"inet.linklayer.ieee80211.mac.Ds\""
+par Net80211.host[0].wlan[0].mac.ds mibModule "\"Net80211.host[0].wlan[0].mib\""
+par Net80211.host[0].wlan[0].mac.rx typename "\"inet.linklayer.ieee80211.mac.Rx\""
+par Net80211.host[0].wlan[0].mac.tx typename "\"inet.linklayer.ieee80211.mac.Tx\""
+par Net80211.host[0].wlan[0].mac.tx rxModule "\"^.rx\""
+par Net80211.host[0].wlan[0].mac typename "\"inet.linklayer.ieee80211.mac.Ieee80211Mac\""
+par Net80211.host[0].wlan[0].mac interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].wlan[0].mac mibModule "\"Net80211.host[0].wlan[0].mib\""
+par Net80211.host[0].wlan[0].mac modeSet "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[0].wlan[0].mac fcsMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[0].wlan[0].mac initialRadioMode "\"receiver\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par Net80211.host[0].wlan[0].mac mtu 2304B
+attr unit B
+par Net80211.host[0].wlan[0].mac qosStation false
+scalar Net80211.host[0].wlan[0].mac packetReceivedFromLower:count 372
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from lower layer, count"
+scalar Net80211.host[0].wlan[0].mac packetReceivedFromLower:sum(packetBytes) 24812
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetSentToLower:count 370
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to lower layer, count"
+scalar Net80211.host[0].wlan[0].mac packetSentToLower:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetReceivedFromUpper:count 186
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from upper layer, count"
+scalar Net80211.host[0].wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 17000
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetSentToUpper:count 186
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to upper layer, count"
+scalar Net80211.host[0].wlan[0].mac packetSentToUpper:sum(packetBytes) 17000
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar Net80211.host[0].wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar Net80211.host[0].wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar Net80211.host[0].wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Net80211.host[0].wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar Net80211.host[0].wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar Net80211.host[0].wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar Net80211.host[0].wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par Net80211.host[0].wlan[0].radio.antenna typename "\"inet.physicallayer.wireless.common.antenna.IsotropicAntenna\""
+par Net80211.host[0].wlan[0].radio.antenna mobilityModule "\"^.^.^.mobility\""
+par Net80211.host[0].wlan[0].radio.antenna numAntennas 1
+par Net80211.host[0].wlan[0].radio.transmitter typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarTransmitter\""
+par Net80211.host[0].wlan[0].radio.transmitter preambleDuration -1s
+attr unit s
+par Net80211.host[0].wlan[0].radio.transmitter headerLength 192b
+attr unit b
+par Net80211.host[0].wlan[0].radio.transmitter bitrate 2e+06bps
+attr unit bps
+par Net80211.host[0].wlan[0].radio.transmitter power 0.002W
+attr unit W
+par Net80211.host[0].wlan[0].radio.transmitter centerFrequency 2.412e+09Hz
+attr unit Hz
+par Net80211.host[0].wlan[0].radio.transmitter bandwidth "nan Hz"
+attr unit Hz
+par Net80211.host[0].wlan[0].radio.transmitter modulation "\"BPSK\""
+par Net80211.host[0].wlan[0].radio.transmitter opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[0].wlan[0].radio.transmitter bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par Net80211.host[0].wlan[0].radio.transmitter channelNumber 0
+par Net80211.host[0].wlan[0].radio.receiver.errorModel typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.errormodel.Ieee80211NistErrorModel\""
+par Net80211.host[0].wlan[0].radio.receiver.errorModel corruptionMode "\"packet\""
+attr enum packet,chunk,byte,bit
+par Net80211.host[0].wlan[0].radio.receiver.errorModel snirMode "\"min\""
+attr unit min,mean
+par Net80211.host[0].wlan[0].radio.receiver.errorModel snirOffset 0dB
+attr unit dB
+par Net80211.host[0].wlan[0].radio.receiver typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver\""
+par Net80211.host[0].wlan[0].radio.receiver snirThreshold 4dB
+attr unit dB
+par Net80211.host[0].wlan[0].radio.receiver snirThresholdMode "\"min\""
+attr unit min,mean
+par Net80211.host[0].wlan[0].radio.receiver energyDetection -85dBm
+attr unit dBm
+par Net80211.host[0].wlan[0].radio.receiver sensitivity -85dBm
+attr unit dBm
+par Net80211.host[0].wlan[0].radio.receiver centerFrequency 2.412e+09Hz
+attr unit Hz
+par Net80211.host[0].wlan[0].radio.receiver bandwidth 2.2e+07Hz
+attr unit Hz
+par Net80211.host[0].wlan[0].radio.receiver modulation "\"BPSK\""
+par Net80211.host[0].wlan[0].radio.receiver opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[0].wlan[0].radio.receiver bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par Net80211.host[0].wlan[0].radio.receiver channelNumber 0
+par Net80211.host[0].wlan[0].radio typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio\""
+par Net80211.host[0].wlan[0].radio radioMediumModule "\"radioMedium\""
+par Net80211.host[0].wlan[0].radio energySourceModule "\"\""
+par Net80211.host[0].wlan[0].radio initialRadioMode "\"off\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par Net80211.host[0].wlan[0].radio switchingTimes "\"ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\""
+par Net80211.host[0].wlan[0].radio sendRawBytes false
+par Net80211.host[0].wlan[0].radio separateTransmissionParts false
+par Net80211.host[0].wlan[0].radio separateReceptionParts false
+par Net80211.host[0].wlan[0].radio displayCommunicationRange false
+par Net80211.host[0].wlan[0].radio displayInterferenceRange false
+par Net80211.host[0].wlan[0].radio centerFrequency 2.412e+09Hz
+attr unit Hz
+par Net80211.host[0].wlan[0].radio bandwidth "nan Hz"
+attr unit Hz
+par Net80211.host[0].wlan[0].radio signalAnalogRepresentation "\"scalar\""
+attr enum scalar,dimensional
+par Net80211.host[0].wlan[0].radio opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[0].wlan[0].radio bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par Net80211.host[0].wlan[0].radio channelNumber 0
+par Net80211.host[0].wlan[0].radio crcMode "\"declared\""
+attr enum declared,computed
+statistic Net80211.host[0].wlan[0].radio radioChannel:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr recordingmode histogram
+attr source radioChannelChanged
+attr title "Radio channel"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar Net80211.host[0].wlan[0].radio radioMode:count 743
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Net80211.host[0].wlan[0].radio receptionState:count 1499
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Net80211.host[0].wlan[0].radio transmissionState:count 1480
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic Net80211.host[0].wlan[0].radio minSnir:histogram
+field count 372
+field mean 9698.4419795714
+field stddev 75863.424108849
+field min 316.58643033619
+field max 969350.62628139
+field sum 3607820.4164006
+field sqrsum 2170191369580.7
+attr recordingmode histogram
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR"
+bin	-inf	0
+bin	0	357
+bin	20000	7
+bin	40000	2
+bin	60000	0
+bin	80000	2
+bin	100000	0
+bin	120000	0
+bin	140000	0
+bin	160000	0
+bin	180000	0
+bin	200000	0
+bin	220000	0
+bin	240000	0
+bin	260000	0
+bin	280000	0
+bin	300000	0
+bin	320000	0
+bin	340000	0
+bin	360000	2
+bin	380000	0
+bin	400000	0
+bin	420000	0
+bin	440000	0
+bin	460000	0
+bin	480000	0
+bin	500000	0
+bin	520000	0
+bin	540000	0
+bin	560000	0
+bin	580000	0
+bin	600000	0
+bin	620000	0
+bin	640000	0
+bin	660000	0
+bin	680000	0
+bin	700000	0
+bin	720000	0
+bin	740000	0
+bin	760000	0
+bin	780000	0
+bin	800000	0
+bin	820000	0
+bin	840000	0
+bin	860000	0
+bin	880000	0
+bin	900000	0
+bin	920000	0
+bin	940000	1
+bin	960000	1
+bin	980000	0
+bin	1000000	0
+bin	1020000	0
+bin	1040000	0
+bin	1060000	0
+bin	1080000	0
+bin	1100000	0
+bin	1120000	0
+bin	1140000	0
+bin	1160000	0
+bin	1180000	0
+bin	1200000	0
+bin	1220000	0
+statistic Net80211.host[0].wlan[0].radio packetErrorRate:histogram
+field count 372
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	372
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic Net80211.host[0].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Net80211.host[0].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+par Net80211.host[0].wlan[0] typename "\"inet.linklayer.ieee80211.Ieee80211Interface\""
+par Net80211.host[0].wlan[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par Net80211.host[0].wlan[0] recordPcap false
+par Net80211.host[0].wlan[0] numPcapRecorders 0
+par Net80211.host[0].wlan[0] interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].wlan[0] energySourceModule "\"\""
+par Net80211.host[0].wlan[0] opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[0].wlan[0] address "\"0A-AA-00-00-00-01\""
+attr mutable ""
+par Net80211.host[0].wlan[0] protocol "\"\""
+par Net80211.host[0].wlan[0] bitrate 2e+06bps
+attr unit bps
+scalar Net80211.host[0].wlan[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar Net80211.host[0].wlan[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar Net80211.host[0].wlan[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar Net80211.host[0].wlan[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par Net80211.host[0].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[0].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par Net80211.host[0].ipv4.configurator interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4.configurator routingTableModule "\"Net80211.host[0].ipv4.routingTable\""
+par Net80211.host[0].ipv4.configurator networkConfiguratorModule "\"configurator\""
+par Net80211.host[0].ipv4.configurator configureRoutingTable true
+par Net80211.host[0].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par Net80211.host[0].ipv4.routingTable interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4.routingTable routerId "\"auto\""
+par Net80211.host[0].ipv4.routingTable netmaskRoutes "\"*\""
+par Net80211.host[0].ipv4.routingTable forwarding true
+par Net80211.host[0].ipv4.routingTable multicastForwarding false
+par Net80211.host[0].ipv4.routingTable useAdminDist false
+par Net80211.host[0].ipv4.routingTable routingFile "\"\""
+par Net80211.host[0].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par Net80211.host[0].ipv4.natTable networkProtocolModule "\"^.ip\""
+par Net80211.host[0].ipv4.natTable config "<config/> at content:1"
+par Net80211.host[0].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].ipv4.up forwardServiceRegistration true
+par Net80211.host[0].ipv4.up forwardProtocolRegistration true
+par Net80211.host[0].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par Net80211.host[0].ipv4.igmp interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4.igmp routingTableModule "\"Net80211.host[0].ipv4.routingTable\""
+par Net80211.host[0].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[0].ipv4.igmp enabled true
+par Net80211.host[0].ipv4.igmp robustnessVariable 2
+par Net80211.host[0].ipv4.igmp queryInterval 125s
+attr unit s
+par Net80211.host[0].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par Net80211.host[0].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par Net80211.host[0].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par Net80211.host[0].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par Net80211.host[0].ipv4.igmp startupQueryCount 2
+par Net80211.host[0].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par Net80211.host[0].ipv4.igmp lastMemberQueryCount 2
+par Net80211.host[0].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par Net80211.host[0].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par Net80211.host[0].ipv4.icmp interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4.icmp routingTableModule "\"Net80211.host[0].ipv4.routingTable\""
+par Net80211.host[0].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par Net80211.host[0].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par Net80211.host[0].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].ipv4.mp forwardServiceRegistration true
+par Net80211.host[0].ipv4.mp forwardProtocolRegistration true
+par Net80211.host[0].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par Net80211.host[0].ipv4.ip interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4.ip routingTableModule "\"Net80211.host[0].ipv4.routingTable\""
+par Net80211.host[0].ipv4.ip arpModule "\"Net80211.host[0].ipv4.arp\""
+par Net80211.host[0].ipv4.ip icmpModule "\"Net80211.host[0].ipv4.icmp\""
+par Net80211.host[0].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[0].ipv4.ip timeToLive 32
+par Net80211.host[0].ipv4.ip multicastTimeToLive 32
+par Net80211.host[0].ipv4.ip fragmentTimeout 60s
+attr unit s
+par Net80211.host[0].ipv4.ip limitedBroadcast false
+par Net80211.host[0].ipv4.ip directBroadcastInterfaces "\"\""
+scalar Net80211.host[0].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Net80211.host[0].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Net80211.host[0].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Net80211.host[0].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Net80211.host[0].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Net80211.host[0].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Net80211.host[0].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Net80211.host[0].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Net80211.host[0].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Net80211.host[0].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Net80211.host[0].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Net80211.host[0].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par Net80211.host[0].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par Net80211.host[0].ipv4.arp interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4.arp routingTableModule "\"Net80211.host[0].ipv4.routingTable\""
+par Net80211.host[0].ipv4.arp retryTimeout 1s
+attr unit s
+par Net80211.host[0].ipv4.arp retryCount 3
+par Net80211.host[0].ipv4.arp cacheTimeout 120s
+attr unit s
+par Net80211.host[0].ipv4.arp proxyArpInterfaces "\"\""
+scalar Net80211.host[0].ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar Net80211.host[0].ipv4.arp arpResolutionCompleted:count 2
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar Net80211.host[0].ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+scalar Net80211.host[0].ipv4.arp arpReplySent:count 2
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar Net80211.host[0].ipv4.arp arpReplySent:sum(packetBytes) 56
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar Net80211.host[0].ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar Net80211.host[0].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+par Net80211.host[0].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].ipv4.lp forwardServiceRegistration true
+par Net80211.host[0].ipv4.lp forwardProtocolRegistration true
+par Net80211.host[0].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par Net80211.host[0].ipv4 forwarding true
+par Net80211.host[0].ipv4 multicastForwarding false
+par Net80211.host[0].ipv4 interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].ipv4 displayStringTextFormat "\"%i\""
+par Net80211.host[0].nl typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].nl forwardServiceRegistration true
+par Net80211.host[0].nl forwardProtocolRegistration true
+par Net80211.host[0].udp typename "\"inet.transportlayer.udp.Udp\""
+par Net80211.host[0].udp interfaceTableModule "\"Net80211.host[0].interfaceTable\""
+par Net80211.host[0].udp icmpModule "\"^.ipv4.icmp\""
+par Net80211.host[0].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par Net80211.host[0].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par Net80211.host[0].udp defaultMulticastLoop true
+scalar Net80211.host[0].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar Net80211.host[0].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Net80211.host[0].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar Net80211.host[0].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Net80211.host[0].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Net80211.host[0].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Net80211.host[0].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par Net80211.host[0].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par Net80211.host[0].tcp crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[0].tcp advertisedWindow 7504
+par Net80211.host[0].tcp delayedAcksEnabled false
+par Net80211.host[0].tcp nagleEnabled true
+par Net80211.host[0].tcp limitedTransmitEnabled false
+par Net80211.host[0].tcp increasedIWEnabled false
+par Net80211.host[0].tcp sackSupport false
+par Net80211.host[0].tcp windowScalingSupport false
+par Net80211.host[0].tcp windowScalingFactor -1
+par Net80211.host[0].tcp timestampSupport false
+par Net80211.host[0].tcp mss 536
+par Net80211.host[0].tcp msl 120s
+attr unit s
+par Net80211.host[0].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par Net80211.host[0].tcp useDataNotification false
+par Net80211.host[0].tcp dupthresh 3
+par Net80211.host[0].tcp initialSsthresh 4294967295
+par Net80211.host[0].tcp stopOperationExtraTime 0s
+attr unit s
+par Net80211.host[0].tcp stopOperationTimeout 2s
+attr unit s
+par Net80211.host[0].tcp ecnWillingness false
+par Net80211.host[0].tcp dctcpGamma 0.0625
+par Net80211.host[0].tn typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].tn forwardServiceRegistration true
+par Net80211.host[0].tn forwardProtocolRegistration true
+par Net80211.host[0].at typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[0].at displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[0].at forwardServiceRegistration true
+par Net80211.host[0].at forwardProtocolRegistration true
+par Net80211.host[0] typename "\"inet.node.inet.AdhocHost\""
+par Net80211.host[0] hasStatus false
+par Net80211.host[0] osgModel "\"\""
+par Net80211.host[0] osgModelColor "\"\""
+par Net80211.host[0] canvasImage "\"\""
+par Net80211.host[0] canvasImageColor "\"\""
+par Net80211.host[0] recordPcap false
+par Net80211.host[0] numPcapRecorders 0
+par Net80211.host[0] numLoInterfaces 1
+par Net80211.host[0] numWlanInterfaces 1
+par Net80211.host[0] numEthInterfaces 0
+par Net80211.host[0] numPppInterfaces 0
+par Net80211.host[0] numTunInterfaces 0
+par Net80211.host[0] numVirtInterfaces 0
+par Net80211.host[0] fcsMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[0] hasIpv4 true
+par Net80211.host[0] hasIpv6 false
+par Net80211.host[0] hasGn false
+par Net80211.host[0] forwarding true
+par Net80211.host[0] multicastForwarding false
+par Net80211.host[0] hasUdp true
+par Net80211.host[0] hasTcp true
+par Net80211.host[0] hasSctp false
+par Net80211.host[0] numApps 0
+par Net80211.host[1].radioIn[0].channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].mobility typename "\"inet.mobility.single.MassMobility\""
+par Net80211.host[1].mobility subjectModule "\"^\""
+par Net80211.host[1].mobility coordinateSystemModule "\"\""
+par Net80211.host[1].mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par Net80211.host[1].mobility updateDisplayString true
+par Net80211.host[1].mobility constraintAreaMinX 0m
+attr unit m
+par Net80211.host[1].mobility constraintAreaMinY 0m
+attr unit m
+par Net80211.host[1].mobility constraintAreaMinZ 0m
+attr unit m
+par Net80211.host[1].mobility constraintAreaMaxX 600m
+attr unit m
+par Net80211.host[1].mobility constraintAreaMaxY 400m
+attr unit m
+par Net80211.host[1].mobility constraintAreaMaxZ 0m
+attr unit m
+par Net80211.host[1].mobility updateInterval 0.1s
+attr unit s
+par Net80211.host[1].mobility faceForward true
+par Net80211.host[1].mobility initialX 0.0686286m
+attr unit m
+par Net80211.host[1].mobility initialY 51.2498m
+attr unit m
+par Net80211.host[1].mobility initialZ 0m
+attr unit m
+par Net80211.host[1].mobility initialMovementHeading 359.655deg
+attr unit deg
+par Net80211.host[1].mobility initialMovementElevation 0deg
+attr unit deg
+par Net80211.host[1].mobility initFromDisplayString false
+par Net80211.host[1].mobility changeInterval "truncnormal(2s, 0.5s)"
+attr unit s
+par Net80211.host[1].mobility angleDelta "normal(0deg, 30deg)"
+attr unit deg
+par Net80211.host[1].mobility rotationAxisAngle 0deg
+attr unit deg
+par Net80211.host[1].mobility speed "truncnormal(20mps, 8mps)"
+attr mutable ""
+attr unit mps
+par Net80211.host[1].interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par Net80211.host[1].interfaceTable displayAddresses false
+par Net80211.host[1].cb typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].cb displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].cb forwardServiceRegistration true
+par Net80211.host[1].cb forwardProtocolRegistration true
+par Net80211.host[1].bl typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].bl displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].bl forwardServiceRegistration true
+par Net80211.host[1].bl forwardProtocolRegistration true
+par Net80211.host[1].li typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].li displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].li forwardServiceRegistration true
+par Net80211.host[1].li forwardProtocolRegistration true
+par Net80211.host[1].lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par Net80211.host[1].lo[0].lo interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].lo[0].lo mtu 4470B
+attr unit B
+scalar Net80211.host[1].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar Net80211.host[1].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar Net80211.host[1].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar Net80211.host[1].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par Net80211.host[1].lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par Net80211.host[1].lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par Net80211.host[1].lo[0] recordPcap false
+par Net80211.host[1].lo[0] numPcapRecorders 0
+par Net80211.host[1].lo[0] interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+scalar Net80211.host[1].lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar Net80211.host[1].lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar Net80211.host[1].lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar Net80211.host[1].lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par Net80211.host[1].wlan[0].radioIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].wlan[0].llc.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].wlan[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].wlan[0].mib typename "\"inet.linklayer.ieee80211.mib.Ieee80211Mib\""
+par Net80211.host[1].wlan[0].llc typename "\"inet.linklayer.ieee80211.llc.Ieee80211LlcLpd\""
+par Net80211.host[1].wlan[0].llc registerProtocol false
+par Net80211.host[1].wlan[0].mgmt typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc\""
+par Net80211.host[1].wlan[0].mgmt mibModule "\"Net80211.host[1].wlan[0].mib\""
+par Net80211.host[1].wlan[0].mgmt macModule "\"Net80211.host[1].wlan[0].mac\""
+par Net80211.host[1].wlan[0].mgmt interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue typename "\"inet.linklayer.ieee80211.mac.queue.PendingQueue\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue displayStringTextFormat "\"contains %p pk (%l) pushed %u\\npulled %o removed %r dropped %d\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetCapacity 100
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue dataCapacity -1b
+attr unit b
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue dropperClass "\"inet::queueing::PacketAtCollectionEndDropper\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue comparatorClass "\"inet::ieee80211::MgmtOverDataComparator\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue bufferModule "\"\""
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, last"
+attr unit pk
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 3
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, max"
+attr unit pk
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 0.00017279605379551
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, timeavg"
+attr unit pk
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, last"
+attr unit b
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 2880
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, max"
+attr unit b
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0.16588421164369
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, timeavg"
+attr unit b
+statistic Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 443
+field mean 8.9782225697517e-05
+field stddev 0.0010793278645408
+field min 0
+field max 0.014469525984
+field sum 0.039773525984
+field sqrsum 0.00051847825420165
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+bin	-inf	0
+bin	0	439
+bin	0.00021	0
+bin	0.00042	1
+bin	0.00063	0
+bin	0.00084	0
+bin	0.00105	0
+bin	0.00126	0
+bin	0.00147	0
+bin	0.00168	0
+bin	0.00189	0
+bin	0.0021	0
+bin	0.00231	0
+bin	0.00252	0
+bin	0.00273	0
+bin	0.00294	0
+bin	0.00315	0
+bin	0.00336	0
+bin	0.00357	0
+bin	0.00378	0
+bin	0.00399	0
+bin	0.0042	0
+bin	0.00441	0
+bin	0.00462	0
+bin	0.00483	0
+bin	0.00504	0
+bin	0.00525	0
+bin	0.00546	0
+bin	0.00567	0
+bin	0.00588	0
+bin	0.00609	0
+bin	0.0063	0
+bin	0.00651	0
+bin	0.00672	0
+bin	0.00693	0
+bin	0.00714	0
+bin	0.00735	0
+bin	0.00756	0
+bin	0.00777	0
+bin	0.00798	0
+bin	0.00819	0
+bin	0.0084	0
+bin	0.00861	0
+bin	0.00882	0
+bin	0.00903	0
+bin	0.00924	0
+bin	0.00945	0
+bin	0.00966	0
+bin	0.00987	0
+bin	0.01008	0
+bin	0.01029	0
+bin	0.0105	0
+bin	0.01071	0
+bin	0.01092	0
+bin	0.01113	0
+bin	0.01134	0
+bin	0.01155	0
+bin	0.01176	0
+bin	0.01197	0
+bin	0.01218	0
+bin	0.01239	2
+bin	0.0126	0
+bin	0.01281	0
+bin	0.01302	0
+bin	0.01323	0
+bin	0.01344	0
+bin	0.01365	0
+bin	0.01386	0
+bin	0.01407	0
+bin	0.01428	1
+bin	0.01449	0
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPackets:count 443
+attr recordingmode count
+attr source packetPulled
+attr title "outgoing packets, count"
+attr unit pk
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 414528
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths, sum"
+attr unit b
+statistic Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
+field count 443
+field mean 935.72911963883
+field stddev 101.52608712702
+field min 512
+field max 960
+field sum 414528
+field sqrsum 392441856
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+bin	-inf	0
+bin	400	0
+bin	410	0
+bin	420	0
+bin	430	0
+bin	440	0
+bin	450	0
+bin	460	0
+bin	470	0
+bin	480	0
+bin	490	0
+bin	500	0
+bin	510	24
+bin	520	0
+bin	530	0
+bin	540	0
+bin	550	0
+bin	560	0
+bin	570	0
+bin	580	0
+bin	590	0
+bin	600	0
+bin	610	0
+bin	620	0
+bin	630	0
+bin	640	0
+bin	650	0
+bin	660	0
+bin	670	0
+bin	680	0
+bin	690	0
+bin	700	0
+bin	710	0
+bin	720	0
+bin	730	0
+bin	740	0
+bin	750	0
+bin	760	0
+bin	770	0
+bin	780	0
+bin	790	0
+bin	800	0
+bin	810	0
+bin	820	0
+bin	830	0
+bin	840	0
+bin	850	0
+bin	860	0
+bin	870	0
+bin	880	0
+bin	890	0
+bin	900	0
+bin	910	0
+bin	920	0
+bin	930	0
+bin	940	0
+bin	950	0
+bin	960	419
+bin	970	0
+bin	980	0
+bin	990	0
+bin	1000	0
+bin	1010	0
+bin	1020	0
+bin	1030	0
+bin	1040	0
+bin	1050	0
+bin	1060	0
+bin	1070	0
+bin	1080	0
+statistic Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPackets:count 443
+attr recordingmode count
+attr source packetPushStarted
+attr title "incoming packets, count"
+attr unit pk
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 414528
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths, sum"
+attr unit b
+statistic Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
+field count 443
+field mean 935.72911963883
+field stddev 101.52608712702
+field min 512
+field max 960
+field sum 414528
+field sqrsum 392441856
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+bin	-inf	0
+bin	400	0
+bin	410	0
+bin	420	0
+bin	430	0
+bin	440	0
+bin	450	0
+bin	460	0
+bin	470	0
+bin	480	0
+bin	490	0
+bin	500	0
+bin	510	24
+bin	520	0
+bin	530	0
+bin	540	0
+bin	550	0
+bin	560	0
+bin	570	0
+bin	580	0
+bin	590	0
+bin	600	0
+bin	610	0
+bin	620	0
+bin	630	0
+bin	640	0
+bin	650	0
+bin	660	0
+bin	670	0
+bin	680	0
+bin	690	0
+bin	700	0
+bin	710	0
+bin	720	0
+bin	730	0
+bin	740	0
+bin	750	0
+bin	760	0
+bin	770	0
+bin	780	0
+bin	790	0
+bin	800	0
+bin	810	0
+bin	820	0
+bin	830	0
+bin	840	0
+bin	850	0
+bin	860	0
+bin	870	0
+bin	880	0
+bin	890	0
+bin	900	0
+bin	910	0
+bin	920	0
+bin	930	0
+bin	940	0
+bin	950	0
+bin	960	419
+bin	970	0
+bin	980	0
+bin	990	0
+bin	1000	0
+bin	1010	0
+bin	1020	0
+bin	1030	0
+bin	1040	0
+bin	1050	0
+bin	1060	0
+bin	1070	0
+bin	1080	0
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "dropped packets: queue overflow, count"
+attr unit pk
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketLengthsQueueOverflow:sum 0
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow, sum"
+attr unit b
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames typename "\"inet.linklayer.ieee80211.mac.queue.InProgressFrames\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames pendingQueueModule "\"^.pendingQueue\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMacDataServiceModule "\"^.^.originatorMacDataService\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
+statistic Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 443
+field mean 0.035553439357946
+field stddev 0.035141698507558
+field min 0.000448
+field max 0.118334
+field sum 15.75017363557
+field sqrsum 1.1058158697356
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+bin	-inf	0
+bin	0	204
+bin	0.002	2
+bin	0.004	0
+bin	0.006	0
+bin	0.008	0
+bin	0.01	1
+bin	0.012	4
+bin	0.014	2
+bin	0.016	2
+bin	0.018	2
+bin	0.02	1
+bin	0.022	0
+bin	0.024	0
+bin	0.026	0
+bin	0.028	0
+bin	0.03	1
+bin	0.032	0
+bin	0.034	0
+bin	0.036	2
+bin	0.038	1
+bin	0.04	2
+bin	0.042	3
+bin	0.044	4
+bin	0.046	7
+bin	0.048	4
+bin	0.05	10
+bin	0.052	7
+bin	0.054	8
+bin	0.056	9
+bin	0.058	11
+bin	0.06	10
+bin	0.062	12
+bin	0.064	11
+bin	0.066	9
+bin	0.068	13
+bin	0.07	16
+bin	0.072	13
+bin	0.074	9
+bin	0.076	7
+bin	0.078	4
+bin	0.08	11
+bin	0.082	4
+bin	0.084	6
+bin	0.086	7
+bin	0.088	5
+bin	0.09	3
+bin	0.092	3
+bin	0.094	4
+bin	0.096	3
+bin	0.098	0
+bin	0.1	2
+bin	0.102	0
+bin	0.104	2
+bin	0.106	1
+bin	0.108	0
+bin	0.11	0
+bin	0.112	0
+bin	0.114	0
+bin	0.116	0
+bin	0.118	1
+bin	0.12	0
+bin	0.122	0
+bin	0.124	0
+bin	0.126	0
+bin	0.128	0
+bin	0.13	0
+bin	0.132	0
+bin	0.134	0
+bin	0.136	0
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 2
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, max"
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.067489739912106
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, timeavg"
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention typename "\"inet.linklayer.ieee80211.mac.contention.Contention\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention initialChannelBusy true
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention backoffOptimization true
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 1858
+attr recordingmode count
+attr title "channel access granted, count"
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess.contention stateChanged:count 16354
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode count
+attr title "contention state changed, count"
+attr type enum
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess typename "\"inet.linklayer.ieee80211.mac.channelaccess.Dcaf\""
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess difsn -1
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess cwMin 7
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess cwMax -1
+par Net80211.host[1].wlan[0].mac.dcf.channelAccess rxModule "\"^.^.rx\""
+scalar Net80211.host[1].wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 3716
+attr interpolationmode sample-hold
+attr recordingmode count
+attr title "channel ownership, count"
+par Net80211.host[1].wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy typename "\"inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy\""
+par Net80211.host[1].wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy fragmentationThreshold 1500B
+attr unit B
+par Net80211.host[1].wlan[0].mac.dcf.originatorMacDataService typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService\""
+scalar Net80211.host[1].wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr recordingmode count
+attr title "packets aggregated, count"
+scalar Net80211.host[1].wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr recordingmode count
+attr title "packets fragmented, count"
+par Net80211.host[1].wlan[0].mac.dcf.recipientMacDataService typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService\""
+scalar Net80211.host[1].wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr recordingmode count
+attr title "packets deaggregated, count"
+scalar Net80211.host[1].wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 186
+attr recordingmode count
+attr title "packets defragmented, count"
+scalar Net80211.host[1].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar Net80211.host[1].wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection typename "\"inet.linklayer.ieee80211.mac.rateselection.RateSelection\""
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection rateControlModule "\"^.rateControl\""
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection multicastFrameBitrate -1bps
+attr unit bps
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection responseAckFrameBitrate -1bps
+attr unit bps
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection responseCtsFrameBitrate -1bps
+attr unit bps
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection dataFrameBitrate 2e+06bps
+attr unit bps
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection dataFrameBandwidth "nan Hz"
+attr unit Hz
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection dataFrameNumSpatialStreams -1
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection mgmtFrameBitrate -1bps
+attr unit bps
+par Net80211.host[1].wlan[0].mac.dcf.rateSelection controlFrameBitrate -1bps
+attr unit bps
+par Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure typename "\"inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure\""
+par Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure cwCalculatorModule "\"^.channelAccess\""
+par Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure rtsPolicyModule "\"^.rtsPolicy\""
+par Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure shortRetryLimit 7
+par Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure longRetryLimit 4
+scalar Net80211.host[1].wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 235
+attr recordingmode count
+attr title "retry limit reached, count"
+par Net80211.host[1].wlan[0].mac.dcf.originatorProtectionMechanism typename "\"inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism\""
+par Net80211.host[1].wlan[0].mac.dcf.originatorProtectionMechanism rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[1].wlan[0].mac.dcf.ackHandler typename "\"inet.linklayer.ieee80211.mac.originator.AckHandler\""
+par Net80211.host[1].wlan[0].mac.dcf.originatorAckPolicy typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy\""
+par Net80211.host[1].wlan[0].mac.dcf.originatorAckPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[1].wlan[0].mac.dcf.originatorAckPolicy ackTimeout -1s
+attr unit s
+par Net80211.host[1].wlan[0].mac.dcf.recipientAckPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy\""
+par Net80211.host[1].wlan[0].mac.dcf.recipientAckPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[1].wlan[0].mac.dcf.rtsPolicy typename "\"inet.linklayer.ieee80211.mac.originator.RtsPolicy\""
+par Net80211.host[1].wlan[0].mac.dcf.rtsPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[1].wlan[0].mac.dcf.rtsPolicy ctsTimeout -1s
+attr unit s
+par Net80211.host[1].wlan[0].mac.dcf.rtsPolicy rtsThreshold 2346B
+attr unit B
+par Net80211.host[1].wlan[0].mac.dcf.ctsPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.CtsPolicy\""
+par Net80211.host[1].wlan[0].mac.dcf.ctsPolicy rxModule "\"^.^.rx\""
+par Net80211.host[1].wlan[0].mac.dcf.ctsPolicy rateSelectionModule "\"^.rateSelection\""
+par Net80211.host[1].wlan[0].mac.dcf typename "\"inet.linklayer.ieee80211.mac.coordinationfunction.Dcf\""
+par Net80211.host[1].wlan[0].mac.dcf rxModule "\"^.rx\""
+par Net80211.host[1].wlan[0].mac.dcf txModule "\"^.tx\""
+scalar Net80211.host[1].wlan[0].mac.dcf frameSequenceFinished:count 1858
+attr recordingmode count
+attr title "finished frame sequences, count"
+statistic Net80211.host[1].wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 1858
+field mean 0.00089191635327231
+field stddev 5.1991414973193e-05
+field min 0.000448
+field max 0.000931658458
+field sum 1.6571805843799
+field sqrsum 0.0014830861336616
+attr recordingmode histogram
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations"
+bin	-inf	0
+bin	0.00032	0
+bin	0.00033	0
+bin	0.00034	0
+bin	0.00035	0
+bin	0.00036	0
+bin	0.00037	0
+bin	0.00038	0
+bin	0.00039	0
+bin	0.0004	0
+bin	0.00041	0
+bin	0.00042	0
+bin	0.00043	0
+bin	0.00044	24
+bin	0.00045	0
+bin	0.00046	0
+bin	0.00047	0
+bin	0.00048	0
+bin	0.00049	0
+bin	0.0005	0
+bin	0.00051	0
+bin	0.00052	0
+bin	0.00053	0
+bin	0.00054	0
+bin	0.00055	0
+bin	0.00056	0
+bin	0.00057	0
+bin	0.00058	0
+bin	0.00059	0
+bin	0.0006	0
+bin	0.00061	0
+bin	0.00062	0
+bin	0.00063	0
+bin	0.00064	0
+bin	0.00065	0
+bin	0.00066	0
+bin	0.00067	0
+bin	0.00068	0
+bin	0.00069	0
+bin	0.0007	0
+bin	0.00071	0
+bin	0.00072	0
+bin	0.00073	0
+bin	0.00074	0
+bin	0.00075	0
+bin	0.00076	0
+bin	0.00077	0
+bin	0.00078	0
+bin	0.00079	0
+bin	0.0008	0
+bin	0.00081	0
+bin	0.00082	0
+bin	0.00083	0
+bin	0.00084	0
+bin	0.00085	0
+bin	0.00086	0
+bin	0.00087	0
+bin	0.00088	0
+bin	0.00089	1650
+bin	0.0009	0
+bin	0.00091	0
+bin	0.00092	0
+bin	0.00093	184
+bin	0.00094	0
+bin	0.00095	0
+bin	0.00096	0
+bin	0.00097	0
+bin	0.00098	0
+bin	0.00099	0
+bin	0.001	0
+bin	0.00101	0
+bin	0.00102	0
+bin	0.00103	0
+bin	0.00104	0
+bin	0.00105	0
+bin	0.00106	0
+statistic Net80211.host[1].wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 1858
+field mean 1.9870828848224
+field stddev 0.11294746286507
+field min 1
+field max 2
+field sum 3692
+field sqrsum 7360
+attr recordingmode histogram
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets"
+bin	-inf	0
+bin	0	0
+bin	1	24
+bin	2	1834
+bin	3	0
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeer:count 370
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 370
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 370
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeer:count 2044
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 224220
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerUnicast:count 2020
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 222684
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerMulticast:count 24
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 1536
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerBroadcast:count 24
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 1536
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerWithRetry:count 1415
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 169800
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 629
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 54420
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDrop:count 235
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDrop:sum(packetBytes) 28200
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDropRetryLimitReached:count 235
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar Net80211.host[1].wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 28200
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac.dcf linkBroken:count 235
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par Net80211.host[1].wlan[0].mac.ds typename "\"inet.linklayer.ieee80211.mac.Ds\""
+par Net80211.host[1].wlan[0].mac.ds mibModule "\"Net80211.host[1].wlan[0].mib\""
+par Net80211.host[1].wlan[0].mac.rx typename "\"inet.linklayer.ieee80211.mac.Rx\""
+par Net80211.host[1].wlan[0].mac.tx typename "\"inet.linklayer.ieee80211.mac.Tx\""
+par Net80211.host[1].wlan[0].mac.tx rxModule "\"^.rx\""
+par Net80211.host[1].wlan[0].mac typename "\"inet.linklayer.ieee80211.mac.Ieee80211Mac\""
+par Net80211.host[1].wlan[0].mac interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].wlan[0].mac mibModule "\"Net80211.host[1].wlan[0].mib\""
+par Net80211.host[1].wlan[0].mac modeSet "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[1].wlan[0].mac fcsMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1].wlan[0].mac initialRadioMode "\"receiver\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par Net80211.host[1].wlan[0].mac mtu 2304B
+attr unit B
+par Net80211.host[1].wlan[0].mac qosStation false
+scalar Net80211.host[1].wlan[0].mac packetReceivedFromLower:count 370
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from lower layer, count"
+scalar Net80211.host[1].wlan[0].mac packetReceivedFromLower:sum(packetBytes) 24784
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetSentToLower:count 2044
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to lower layer, count"
+scalar Net80211.host[1].wlan[0].mac packetSentToLower:sum(packetBytes) 224220
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetReceivedFromUpper:count 443
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from upper layer, count"
+scalar Net80211.host[1].wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 39412
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetSentToUpper:count 186
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to upper layer, count"
+scalar Net80211.host[1].wlan[0].mac packetSentToUpper:sum(packetBytes) 17000
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDrop:count 235
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar Net80211.host[1].wlan[0].mac packetDrop:sum(packetBytes) 28200
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar Net80211.host[1].wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar Net80211.host[1].wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar Net80211.host[1].wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDropRetryLimitReached:count 235
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar Net80211.host[1].wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 28200
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar Net80211.host[1].wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar Net80211.host[1].wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0].mac linkBroken:count 235
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par Net80211.host[1].wlan[0].radio.antenna typename "\"inet.physicallayer.wireless.common.antenna.IsotropicAntenna\""
+par Net80211.host[1].wlan[0].radio.antenna mobilityModule "\"^.^.^.mobility\""
+par Net80211.host[1].wlan[0].radio.antenna numAntennas 1
+par Net80211.host[1].wlan[0].radio.transmitter typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarTransmitter\""
+par Net80211.host[1].wlan[0].radio.transmitter preambleDuration -1s
+attr unit s
+par Net80211.host[1].wlan[0].radio.transmitter headerLength 192b
+attr unit b
+par Net80211.host[1].wlan[0].radio.transmitter bitrate 2e+06bps
+attr unit bps
+par Net80211.host[1].wlan[0].radio.transmitter power 0.002W
+attr unit W
+par Net80211.host[1].wlan[0].radio.transmitter centerFrequency 2.412e+09Hz
+attr unit Hz
+par Net80211.host[1].wlan[0].radio.transmitter bandwidth "nan Hz"
+attr unit Hz
+par Net80211.host[1].wlan[0].radio.transmitter modulation "\"BPSK\""
+par Net80211.host[1].wlan[0].radio.transmitter opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[1].wlan[0].radio.transmitter bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par Net80211.host[1].wlan[0].radio.transmitter channelNumber 0
+par Net80211.host[1].wlan[0].radio.receiver.errorModel typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.errormodel.Ieee80211NistErrorModel\""
+par Net80211.host[1].wlan[0].radio.receiver.errorModel corruptionMode "\"packet\""
+attr enum packet,chunk,byte,bit
+par Net80211.host[1].wlan[0].radio.receiver.errorModel snirMode "\"min\""
+attr unit min,mean
+par Net80211.host[1].wlan[0].radio.receiver.errorModel snirOffset 0dB
+attr unit dB
+par Net80211.host[1].wlan[0].radio.receiver typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver\""
+par Net80211.host[1].wlan[0].radio.receiver snirThreshold 4dB
+attr unit dB
+par Net80211.host[1].wlan[0].radio.receiver snirThresholdMode "\"min\""
+attr unit min,mean
+par Net80211.host[1].wlan[0].radio.receiver energyDetection -85dBm
+attr unit dBm
+par Net80211.host[1].wlan[0].radio.receiver sensitivity -85dBm
+attr unit dBm
+par Net80211.host[1].wlan[0].radio.receiver centerFrequency 2.412e+09Hz
+attr unit Hz
+par Net80211.host[1].wlan[0].radio.receiver bandwidth 2.2e+07Hz
+attr unit Hz
+par Net80211.host[1].wlan[0].radio.receiver modulation "\"BPSK\""
+par Net80211.host[1].wlan[0].radio.receiver opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[1].wlan[0].radio.receiver bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par Net80211.host[1].wlan[0].radio.receiver channelNumber 0
+par Net80211.host[1].wlan[0].radio typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio\""
+par Net80211.host[1].wlan[0].radio radioMediumModule "\"radioMedium\""
+par Net80211.host[1].wlan[0].radio energySourceModule "\"\""
+par Net80211.host[1].wlan[0].radio initialRadioMode "\"off\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par Net80211.host[1].wlan[0].radio switchingTimes "\"ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\""
+par Net80211.host[1].wlan[0].radio sendRawBytes false
+par Net80211.host[1].wlan[0].radio separateTransmissionParts false
+par Net80211.host[1].wlan[0].radio separateReceptionParts false
+par Net80211.host[1].wlan[0].radio displayCommunicationRange false
+par Net80211.host[1].wlan[0].radio displayInterferenceRange false
+par Net80211.host[1].wlan[0].radio centerFrequency 2.412e+09Hz
+attr unit Hz
+par Net80211.host[1].wlan[0].radio bandwidth "nan Hz"
+attr unit Hz
+par Net80211.host[1].wlan[0].radio signalAnalogRepresentation "\"scalar\""
+attr enum scalar,dimensional
+par Net80211.host[1].wlan[0].radio opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[1].wlan[0].radio bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par Net80211.host[1].wlan[0].radio channelNumber 0
+par Net80211.host[1].wlan[0].radio crcMode "\"declared\""
+attr enum declared,computed
+statistic Net80211.host[1].wlan[0].radio radioChannel:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr recordingmode histogram
+attr source radioChannelChanged
+attr title "Radio channel"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar Net80211.host[1].wlan[0].radio radioMode:count 4091
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar Net80211.host[1].wlan[0].radio receptionState:count 4829
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar Net80211.host[1].wlan[0].radio transmissionState:count 8176
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic Net80211.host[1].wlan[0].radio minSnir:histogram
+field count 370
+field mean 9748.8403157201
+field stddev 76063.919383892
+field min 316.60764721147
+field max 965493.24578731
+field sum 3607070.9168164
+field sqrsum 2170095376398
+attr recordingmode histogram
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR"
+bin	-inf	0
+bin	0	356
+bin	20000	6
+bin	40000	2
+bin	60000	0
+bin	80000	2
+bin	100000	0
+bin	120000	0
+bin	140000	0
+bin	160000	0
+bin	180000	0
+bin	200000	0
+bin	220000	0
+bin	240000	0
+bin	260000	0
+bin	280000	0
+bin	300000	0
+bin	320000	0
+bin	340000	0
+bin	360000	2
+bin	380000	0
+bin	400000	0
+bin	420000	0
+bin	440000	0
+bin	460000	0
+bin	480000	0
+bin	500000	0
+bin	520000	0
+bin	540000	0
+bin	560000	0
+bin	580000	0
+bin	600000	0
+bin	620000	0
+bin	640000	0
+bin	660000	0
+bin	680000	0
+bin	700000	0
+bin	720000	0
+bin	740000	0
+bin	760000	0
+bin	780000	0
+bin	800000	0
+bin	820000	0
+bin	840000	0
+bin	860000	0
+bin	880000	0
+bin	900000	0
+bin	920000	0
+bin	940000	0
+bin	960000	2
+bin	980000	0
+bin	1000000	0
+bin	1020000	0
+bin	1040000	0
+bin	1060000	0
+bin	1080000	0
+bin	1100000	0
+bin	1120000	0
+bin	1140000	0
+bin	1160000	0
+bin	1180000	0
+bin	1200000	0
+bin	1220000	0
+statistic Net80211.host[1].wlan[0].radio packetErrorRate:histogram
+field count 370
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	370
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic Net80211.host[1].wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic Net80211.host[1].wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+par Net80211.host[1].wlan[0] typename "\"inet.linklayer.ieee80211.Ieee80211Interface\""
+par Net80211.host[1].wlan[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par Net80211.host[1].wlan[0] recordPcap false
+par Net80211.host[1].wlan[0] numPcapRecorders 0
+par Net80211.host[1].wlan[0] interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].wlan[0] energySourceModule "\"\""
+par Net80211.host[1].wlan[0] opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par Net80211.host[1].wlan[0] address "\"0A-AA-00-00-00-02\""
+attr mutable ""
+par Net80211.host[1].wlan[0] protocol "\"\""
+par Net80211.host[1].wlan[0] bitrate 2e+06bps
+attr unit bps
+scalar Net80211.host[1].wlan[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar Net80211.host[1].wlan[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar Net80211.host[1].wlan[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar Net80211.host[1].wlan[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par Net80211.host[1].ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par Net80211.host[1].ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par Net80211.host[1].ipv4.configurator interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4.configurator routingTableModule "\"Net80211.host[1].ipv4.routingTable\""
+par Net80211.host[1].ipv4.configurator networkConfiguratorModule "\"configurator\""
+par Net80211.host[1].ipv4.configurator configureRoutingTable true
+par Net80211.host[1].ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par Net80211.host[1].ipv4.routingTable interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4.routingTable routerId "\"auto\""
+par Net80211.host[1].ipv4.routingTable netmaskRoutes "\"*\""
+par Net80211.host[1].ipv4.routingTable forwarding true
+par Net80211.host[1].ipv4.routingTable multicastForwarding false
+par Net80211.host[1].ipv4.routingTable useAdminDist false
+par Net80211.host[1].ipv4.routingTable routingFile "\"\""
+par Net80211.host[1].ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par Net80211.host[1].ipv4.natTable networkProtocolModule "\"^.ip\""
+par Net80211.host[1].ipv4.natTable config "<config/> at content:1"
+par Net80211.host[1].ipv4.up typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].ipv4.up forwardServiceRegistration true
+par Net80211.host[1].ipv4.up forwardProtocolRegistration true
+par Net80211.host[1].ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par Net80211.host[1].ipv4.igmp interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4.igmp routingTableModule "\"Net80211.host[1].ipv4.routingTable\""
+par Net80211.host[1].ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1].ipv4.igmp enabled true
+par Net80211.host[1].ipv4.igmp robustnessVariable 2
+par Net80211.host[1].ipv4.igmp queryInterval 125s
+attr unit s
+par Net80211.host[1].ipv4.igmp queryResponseInterval 10s
+attr unit s
+par Net80211.host[1].ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par Net80211.host[1].ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par Net80211.host[1].ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par Net80211.host[1].ipv4.igmp startupQueryCount 2
+par Net80211.host[1].ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par Net80211.host[1].ipv4.igmp lastMemberQueryCount 2
+par Net80211.host[1].ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par Net80211.host[1].ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par Net80211.host[1].ipv4.icmp interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4.icmp routingTableModule "\"Net80211.host[1].ipv4.routingTable\""
+par Net80211.host[1].ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par Net80211.host[1].ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par Net80211.host[1].ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].ipv4.mp forwardServiceRegistration true
+par Net80211.host[1].ipv4.mp forwardProtocolRegistration true
+par Net80211.host[1].ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par Net80211.host[1].ipv4.ip interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4.ip routingTableModule "\"Net80211.host[1].ipv4.routingTable\""
+par Net80211.host[1].ipv4.ip arpModule "\"Net80211.host[1].ipv4.arp\""
+par Net80211.host[1].ipv4.ip icmpModule "\"Net80211.host[1].ipv4.icmp\""
+par Net80211.host[1].ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1].ipv4.ip timeToLive 32
+par Net80211.host[1].ipv4.ip multicastTimeToLive 32
+par Net80211.host[1].ipv4.ip fragmentTimeout 60s
+attr unit s
+par Net80211.host[1].ipv4.ip limitedBroadcast false
+par Net80211.host[1].ipv4.ip directBroadcastInterfaces "\"\""
+scalar Net80211.host[1].ipv4.ip packetDropAddressResolutionFailed:count 37
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar Net80211.host[1].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 3108
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar Net80211.host[1].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar Net80211.host[1].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar Net80211.host[1].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar Net80211.host[1].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar Net80211.host[1].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar Net80211.host[1].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar Net80211.host[1].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar Net80211.host[1].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar Net80211.host[1].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar Net80211.host[1].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par Net80211.host[1].ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par Net80211.host[1].ipv4.arp interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4.arp routingTableModule "\"Net80211.host[1].ipv4.routingTable\""
+par Net80211.host[1].ipv4.arp retryTimeout 1s
+attr unit s
+par Net80211.host[1].ipv4.arp retryCount 3
+par Net80211.host[1].ipv4.arp cacheTimeout 120s
+attr unit s
+par Net80211.host[1].ipv4.arp proxyArpInterfaces "\"\""
+scalar Net80211.host[1].ipv4.arp arpResolutionFailed:count 7
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar Net80211.host[1].ipv4.arp arpResolutionCompleted:count 2
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar Net80211.host[1].ipv4.arp arpResolutionInitiated:count 9
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+scalar Net80211.host[1].ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar Net80211.host[1].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar Net80211.host[1].ipv4.arp arpRequestSent:count 24
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar Net80211.host[1].ipv4.arp arpRequestSent:sum(packetBytes) 672
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+par Net80211.host[1].ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].ipv4.lp forwardServiceRegistration true
+par Net80211.host[1].ipv4.lp forwardProtocolRegistration true
+par Net80211.host[1].ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par Net80211.host[1].ipv4 forwarding true
+par Net80211.host[1].ipv4 multicastForwarding false
+par Net80211.host[1].ipv4 interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].ipv4 displayStringTextFormat "\"%i\""
+par Net80211.host[1].nl typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].nl displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].nl forwardServiceRegistration true
+par Net80211.host[1].nl forwardProtocolRegistration true
+par Net80211.host[1].udp typename "\"inet.transportlayer.udp.Udp\""
+par Net80211.host[1].udp interfaceTableModule "\"Net80211.host[1].interfaceTable\""
+par Net80211.host[1].udp icmpModule "\"^.ipv4.icmp\""
+par Net80211.host[1].udp icmpv6Module "\"^.ipv6.icmpv6\""
+par Net80211.host[1].udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par Net80211.host[1].udp defaultMulticastLoop true
+scalar Net80211.host[1].udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar Net80211.host[1].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar Net80211.host[1].udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar Net80211.host[1].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar Net80211.host[1].udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar Net80211.host[1].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar Net80211.host[1].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par Net80211.host[1].tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par Net80211.host[1].tcp crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1].tcp advertisedWindow 7504
+par Net80211.host[1].tcp delayedAcksEnabled false
+par Net80211.host[1].tcp nagleEnabled true
+par Net80211.host[1].tcp limitedTransmitEnabled false
+par Net80211.host[1].tcp increasedIWEnabled false
+par Net80211.host[1].tcp sackSupport false
+par Net80211.host[1].tcp windowScalingSupport false
+par Net80211.host[1].tcp windowScalingFactor -1
+par Net80211.host[1].tcp timestampSupport false
+par Net80211.host[1].tcp mss 536
+par Net80211.host[1].tcp msl 120s
+attr unit s
+par Net80211.host[1].tcp tcpAlgorithmClass "\"TcpReno\""
+attr enum TcpVegas,TcpWestwood,TcpNewReno,TcpReno,TcpTahoe,TcpNoCongestionControl
+par Net80211.host[1].tcp useDataNotification false
+par Net80211.host[1].tcp dupthresh 3
+par Net80211.host[1].tcp initialSsthresh 4294967295
+par Net80211.host[1].tcp stopOperationExtraTime 0s
+attr unit s
+par Net80211.host[1].tcp stopOperationTimeout 2s
+attr unit s
+par Net80211.host[1].tcp ecnWillingness false
+par Net80211.host[1].tcp dctcpGamma 0.0625
+par Net80211.host[1].tn typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].tn displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].tn forwardServiceRegistration true
+par Net80211.host[1].tn forwardProtocolRegistration true
+par Net80211.host[1].app[0] typename "\"inet.applications.pingapp.PingApp\""
+par Net80211.host[1].app[0] destAddr "\"host[0]\""
+par Net80211.host[1].app[0] srcAddr "\"\""
+par Net80211.host[1].app[0] packetSize 56B
+attr unit B
+par Net80211.host[1].app[0] sendInterval 1s
+attr unit s
+par Net80211.host[1].app[0] hopLimit -1
+par Net80211.host[1].app[0] count -1
+par Net80211.host[1].app[0] startTime 3.19525s
+attr unit s
+par Net80211.host[1].app[0] stopTime -1s
+attr unit s
+par Net80211.host[1].app[0] sleepDuration 0s
+attr unit s
+par Net80211.host[1].app[0] continuous false
+par Net80211.host[1].app[0] printPing true
+par Net80211.host[1].app[0] crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1].app[0] networkProtocol "\"\""
+par Net80211.host[1].app[0] stopOperationExtraTime -1s
+attr unit s
+par Net80211.host[1].app[0] stopOperationTimeout 2s
+attr unit s
+scalar Net80211.host[1].app[0] "Pings sent" 231
+scalar Net80211.host[1].app[0] "ping loss rate (%)" 60.17316017316
+scalar Net80211.host[1].app[0] "ping out-of-order rate (%)" 0
+scalar Net80211.host[1].app[0] pingRxSeq:count 92
+attr interpolationmode none
+attr recordingmode count
+attr title "ping rx seq, count"
+scalar Net80211.host[1].app[0] pingTxSeq:count 231
+attr interpolationmode none
+attr recordingmode count
+attr title "ping tx seq, count"
+scalar Net80211.host[1].app[0] numOutOfOrderArrivals:last nan
+attr interpolationmode none
+attr recordingmode last
+attr title "ping out-of-order arrivals, last"
+scalar Net80211.host[1].app[0] numLost:last 117
+attr interpolationmode none
+attr recordingmode last
+attr title "pings lost, last"
+statistic Net80211.host[1].app[0] rtt:histogram
+field count 92
+field mean 0.004659188825163
+field stddev 0.020671176599005
+field min 0.001653054725
+field max 0.193255038687
+field sum 0.428645371915
+field sqrsum 0.040881216047626
+attr interpolationmode none
+attr recordingmode histogram
+attr title "ping round-trip time"
+attr unit s
+bin	-inf	0
+bin	0	89
+bin	0.005	0
+bin	0.01	0
+bin	0.015	0
+bin	0.02	0
+bin	0.025	0
+bin	0.03	0
+bin	0.035	1
+bin	0.04	1
+bin	0.045	0
+bin	0.05	0
+bin	0.055	0
+bin	0.06	0
+bin	0.065	0
+bin	0.07	0
+bin	0.075	0
+bin	0.08	0
+bin	0.085	0
+bin	0.09	0
+bin	0.095	0
+bin	0.1	0
+bin	0.105	0
+bin	0.11	0
+bin	0.115	0
+bin	0.12	0
+bin	0.125	0
+bin	0.13	0
+bin	0.135	0
+bin	0.14	0
+bin	0.145	0
+bin	0.15	0
+bin	0.155	0
+bin	0.16	0
+bin	0.165	0
+bin	0.17	0
+bin	0.175	0
+bin	0.18	0
+bin	0.185	0
+bin	0.19	1
+bin	0.195	0
+bin	0.2	0
+bin	0.205	0
+bin	0.21	0
+bin	0.215	0
+bin	0.22	0
+bin	0.225	0
+bin	0.23	0
+bin	0.235	0
+bin	0.24	0
+bin	0.245	0
+par Net80211.host[1].app[1] typename "\"inet.applications.pingapp.PingApp\""
+par Net80211.host[1].app[1] destAddr "\"host[0]\""
+par Net80211.host[1].app[1] srcAddr "\"\""
+par Net80211.host[1].app[1] packetSize 56B
+attr unit B
+par Net80211.host[1].app[1] sendInterval 1s
+attr unit s
+par Net80211.host[1].app[1] hopLimit -1
+par Net80211.host[1].app[1] count -1
+par Net80211.host[1].app[1] startTime 8.37138s
+attr unit s
+par Net80211.host[1].app[1] stopTime -1s
+attr unit s
+par Net80211.host[1].app[1] sleepDuration 0s
+attr unit s
+par Net80211.host[1].app[1] continuous false
+par Net80211.host[1].app[1] printPing true
+par Net80211.host[1].app[1] crcMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1].app[1] networkProtocol "\"\""
+par Net80211.host[1].app[1] stopOperationExtraTime -1s
+attr unit s
+par Net80211.host[1].app[1] stopOperationTimeout 2s
+attr unit s
+scalar Net80211.host[1].app[1] "Pings sent" 226
+scalar Net80211.host[1].app[1] "ping loss rate (%)" 59.29203539823
+scalar Net80211.host[1].app[1] "ping out-of-order rate (%)" 0
+scalar Net80211.host[1].app[1] pingRxSeq:count 92
+attr interpolationmode none
+attr recordingmode count
+attr title "ping rx seq, count"
+scalar Net80211.host[1].app[1] pingTxSeq:count 226
+attr interpolationmode none
+attr recordingmode count
+attr title "ping tx seq, count"
+scalar Net80211.host[1].app[1] numOutOfOrderArrivals:last nan
+attr interpolationmode none
+attr recordingmode last
+attr title "ping out-of-order arrivals, last"
+scalar Net80211.host[1].app[1] numLost:last 112
+attr interpolationmode none
+attr recordingmode last
+attr title "pings lost, last"
+statistic Net80211.host[1].app[1] rtt:histogram
+field count 92
+field mean 0.012923287212
+field stddev 0.10564481283935
+field min 0.001652098582
+field max 1.015069057142
+field sum 1.188942423504
+field sqrsum 1.0310002540848
+attr interpolationmode none
+attr recordingmode histogram
+attr title "ping round-trip time"
+attr unit s
+bin	-inf	0
+bin	0	91
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+bin	0.52	0
+bin	0.54	0
+bin	0.56	0
+bin	0.58	0
+bin	0.6	0
+bin	0.62	0
+bin	0.64	0
+bin	0.66	0
+bin	0.68	0
+bin	0.7	0
+bin	0.72	0
+bin	0.74	0
+bin	0.76	0
+bin	0.78	0
+bin	0.8	0
+bin	0.82	0
+bin	0.84	0
+bin	0.86	0
+bin	0.88	0
+bin	0.9	0
+bin	0.92	0
+bin	0.94	0
+bin	0.96	0
+bin	0.98	0
+bin	1	1
+bin	1.02	0
+bin	1.04	0
+bin	1.06	0
+bin	1.08	0
+bin	1.1	0
+bin	1.12	0
+bin	1.14	0
+bin	1.16	0
+bin	1.18	0
+bin	1.2	0
+bin	1.22	0
+bin	1.24	0
+bin	1.26	0
+bin	1.28	0
+par Net80211.host[1].at typename "\"inet.common.MessageDispatcher\""
+par Net80211.host[1].at displayStringTextFormat "\"processed %p pk (%l)\""
+par Net80211.host[1].at forwardServiceRegistration true
+par Net80211.host[1].at forwardProtocolRegistration true
+par Net80211.host[1] typename "\"inet.node.inet.AdhocHost\""
+par Net80211.host[1] hasStatus false
+par Net80211.host[1] osgModel "\"\""
+par Net80211.host[1] osgModelColor "\"\""
+par Net80211.host[1] canvasImage "\"\""
+par Net80211.host[1] canvasImageColor "\"\""
+par Net80211.host[1] recordPcap false
+par Net80211.host[1] numPcapRecorders 0
+par Net80211.host[1] numLoInterfaces 1
+par Net80211.host[1] numWlanInterfaces 1
+par Net80211.host[1] numEthInterfaces 0
+par Net80211.host[1] numPppInterfaces 0
+par Net80211.host[1] numTunInterfaces 0
+par Net80211.host[1] numVirtInterfaces 0
+par Net80211.host[1] fcsMode "\"declared\""
+attr enum declared,computed
+par Net80211.host[1] hasIpv4 true
+par Net80211.host[1] hasIpv6 false
+par Net80211.host[1] hasGn false
+par Net80211.host[1] forwarding true
+par Net80211.host[1] multicastForwarding false
+par Net80211.host[1] hasUdp true
+par Net80211.host[1] hasTcp true
+par Net80211.host[1] hasSctp false
+par Net80211.host[1] numApps 2
+par Net80211 typename "\"Net80211\""
+par Net80211 numHosts 2
+
